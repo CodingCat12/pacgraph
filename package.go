@@ -28,3 +28,32 @@ type Package struct {
 	Makedepends    []string `json:"makedepends"`
 	Checkdepends   []string `json:"checkdepends"`
 }
+
+var Header []string = []string{
+	"pkgname",
+	"pkgbase",
+	"repo",
+	"arch",
+	"pkgver",
+	"pkgrel",
+	"epoch",
+	"pkgdesc",
+	"uRL",
+	"filename",
+	"compressedSize",
+	"installedSize",
+	"buildDate",
+	"lastUpdate",
+	"flagDate",
+	"maintainers",
+	"packager",
+	"groups",
+	"licenses",
+	"conflicts",
+	"provides",
+	"replaces",
+	"depends",
+	"optdepends",
+	"makedepends",
+	"checkdepends",
+}

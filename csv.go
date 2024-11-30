@@ -20,6 +20,7 @@ var pkgFile string = filepath.Join(csvDir, "packages.csv")
 
 func main() {
 	os.Truncate(pkgFile, 0)
+	writeCsvRow(Header, pkgFile)
 
 	jsonFiles, err := os.ReadDir(jsonDir)
 	if err != nil {
@@ -94,6 +95,24 @@ func writeToCsv(packages []Package, filePath string) {
 	csvWriter.UseCRLF = true
 
 	csvWriter.WriteAll(result)
+	csvWriter.Flush()
+	if err := csvWriter.Error(); err != nil {
+		log.Printf("error writing CSV data: %v\n", err)
+	}
+}
+
+func writeCsvRow(row []string, filePath string) {
+	file, err := os.OpenFile(filePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Printf("error opening file: %v\n", err)
+		return
+	}
+	defer file.Close()
+
+	csvWriter := csv.NewWriter(bufio.NewWriter(file))
+	csvWriter.UseCRLF = true
+
+	csvWriter.Write(row)
 	csvWriter.Flush()
 	if err := csvWriter.Error(); err != nil {
 		log.Printf("error writing CSV data: %v\n", err)
