@@ -38,7 +38,7 @@ var Header []string = []string{
 	"pkgrel",
 	"epoch",
 	"pkgdesc",
-	"uRL",
+	"URL",
 	"filename",
 	"compressedSize",
 	"installedSize",

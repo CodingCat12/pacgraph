@@ -12,13 +12,12 @@ import (
 	"time"
 )
 
-const jsonDir string = "packages/json"
-const csvDir string = "packages/csv"
+var jsonDir string = filepath.Join("packages", "json")
+var csvDir string = filepath.Join("packages", "csv")
 
-var pkgFile string = filepath.Join(csvDir, "packages.csv")
+var startTime time.Time = time.Now()
 
 func main() {
-	startTime := time.Now()
 	argParser()
 
 	os.Truncate(pkgFile, 0)
@@ -46,22 +45,21 @@ func main() {
 		csvData = append(csvData, row)
 
 		if (i % batchSize) == 0 {
-			writeToCsv(csvData, pkgFile)
+			writePackages(csvData, pkgFile)
 			csvData = nil
 		}
 	}
 
 	if len(csvData) > 0 {
-		writeToCsv(csvData, pkgFile)
+		writePackages(csvData, pkgFile)
 	}
 
 	if debugMode {
-		log.Printf("Operation took: %v", time.Since(startTime))
+		logSpecs()
 	}
 }
 
-func getCsvData(jsonString []byte) Package {
-	data := jsonString
+func getCsvData(data []byte) Package {
 	var unmarshaled Package
 
 	err := json.Unmarshal(data, &unmarshaled)
@@ -73,7 +71,7 @@ func getCsvData(jsonString []byte) Package {
 	return unmarshaled
 }
 
-func writeToCsv(packages []Package, filePath string) {
+func writePackages(packages []Package, filePath string) {
 	file, err := os.OpenFile(filePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Printf("error opening file: %v\n", err)
