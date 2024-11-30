@@ -9,9 +9,8 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
+	"time"
 )
-
-const batchSize = 2000
 
 const jsonDir string = "packages/json"
 const csvDir string = "packages/csv"
@@ -19,6 +18,9 @@ const csvDir string = "packages/csv"
 var pkgFile string = filepath.Join(csvDir, "packages.csv")
 
 func main() {
+	startTime := time.Now()
+	argParser()
+
 	os.Truncate(pkgFile, 0)
 	writeCsvRow(Header, pkgFile)
 
@@ -51,6 +53,10 @@ func main() {
 
 	if len(csvData) > 0 {
 		writeToCsv(csvData, pkgFile)
+	}
+
+	if debugMode {
+		log.Printf("Operation took: %v", time.Since(startTime))
 	}
 }
 
