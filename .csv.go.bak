@@ -8,7 +8,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"reflect"
+	"sort"
 )
 
 const batchSize = 2000
@@ -16,7 +16,7 @@ const batchSize = 2000
 const jsonDir string = "packages/json"
 const csvDir string = "packages/csv"
 
-var pkgFile string = filepath.Join(csvDir, "packages.csv")
+var pkgFile string = filepath.Join(csvDir, "packages2.csv")
 
 func main() {
 	os.Truncate(pkgFile, 0)
@@ -26,7 +26,7 @@ func main() {
 		log.Fatalf("error opening directory: %v\n", jsonDir)
 	}
 
-	var csvData []Package
+	var csvData [][]string
 	for i, file := range jsonFiles {
 		if file.IsDir() {
 			continue
@@ -37,6 +37,10 @@ func main() {
 		if err != nil {
 			log.Printf("error reading file: %v", err)
 			continue
+		}
+
+		if i == 0 {
+			csvData = append(csvData, getCsvKeys(data))
 		}
 
 		row := getCsvData(data)
@@ -53,20 +57,59 @@ func main() {
 	}
 }
 
-func getCsvData(jsonString []byte) Package {
+func getCsvData(jsonString []byte) []string {
 	data := jsonString
-	var unmarshaled Package
+	var unmarshaled map[string]interface{}
 
 	err := json.Unmarshal(data, &unmarshaled)
 	if err != nil {
 		log.Printf("error reading JSON: %v\n", err)
-		return Package{}
+		return nil
 	}
 
-	return unmarshaled
+	var values []string
+	var keys []string
+
+	for key := range unmarshaled {
+		keys = append(keys, key)
+	}
+
+	sort.Strings(keys)
+
+	for _, key := range keys {
+		if _, ok := unmarshaled[key].([]interface{}); ok {
+			continue
+		}
+		values = append(values, fmt.Sprintf("%v", unmarshaled[key]))
+	}
+
+	return values
 }
 
-func writeToCsv(packages []Package, filePath string) {
+func getCsvKeys(jsonString []byte) []string {
+	data := jsonString
+	var unmarshaled map[string]interface{}
+
+	err := json.Unmarshal(data, &unmarshaled)
+	if err != nil {
+		log.Printf("error reading JSON: %v\n", err)
+		return nil
+	}
+
+	var keys []string
+
+	for key, value := range unmarshaled {
+		if _, isArray := value.([]interface{}); !isArray {
+			keys = append(keys, key)
+		}
+	}
+
+	sort.Strings(keys)
+
+	return keys
+}
+
+func writeToCsv(values [][]string, filePath string) {
 	file, err := os.OpenFile(filePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Printf("error opening file: %v\n", err)
@@ -74,26 +117,10 @@ func writeToCsv(packages []Package, filePath string) {
 	}
 	defer file.Close()
 
-	var result [][]string
-
-	for row, pkg := range packages {
-		result = append(result, []string{})
-		val := reflect.ValueOf(pkg)
-		for i := 0; i < val.NumField(); i++ {
-			field := val.Field(i)
-			fieldType := field.Kind()
-			if fieldType == reflect.Slice {
-				continue
-			}
-
-			result[row] = append(result[row], fmt.Sprintf("%v", field.Interface()))
-		}
-	}
-
 	csvWriter := csv.NewWriter(bufio.NewWriter(file))
 	csvWriter.UseCRLF = true
 
-	csvWriter.WriteAll(result)
+	csvWriter.WriteAll(values)
 	csvWriter.Flush()
 	if err := csvWriter.Error(); err != nil {
 		log.Printf("error writing CSV data: %v\n", err)
