@@ -9,7 +9,6 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
-	"time"
 )
 
 const batchSize = 2000
@@ -20,7 +19,6 @@ const csvDir string = "packages/csv"
 var pkgFile string = filepath.Join(csvDir, "packages2.csv")
 
 func main() {
-	startTime := time.Now()
 	os.Truncate(pkgFile, 0)
 
 	jsonFiles, err := os.ReadDir(jsonDir)
@@ -42,7 +40,7 @@ func main() {
 		}
 
 		if i == 0 {
-			csvData = append(csvData, getCsvHeaders(data))
+			csvData = append(csvData, getCsvKeys(data))
 		}
 
 		row := getCsvData(data)
@@ -57,8 +55,6 @@ func main() {
 	if len(csvData) > 0 {
 		writeToCsv(csvData, pkgFile)
 	}
-
-	fmt.Printf("Operation took %v\n", time.Since(startTime))
 }
 
 func getCsvData(jsonString []byte) []string {
@@ -90,7 +86,7 @@ func getCsvData(jsonString []byte) []string {
 	return values
 }
 
-func getCsvHeaders(jsonString []byte) []string {
+func getCsvKeys(jsonString []byte) []string {
 	data := jsonString
 	var unmarshaled map[string]interface{}
 
