@@ -14,7 +14,7 @@ import (
 func convertValues(jsonFiles []fs.DirEntry) {
 	err := writeHeaders(pkgFile)
 	if err != nil {
-		logger.Warnf("error writing headers: %v", err)
+		logger.Errorf("error writing headers: %v", err)
 	}
 
 	var csvData []Package
@@ -26,22 +26,22 @@ func convertValues(jsonFiles []fs.DirEntry) {
 		fullpath := filepath.Join(jsonDir, file.Name())
 		data, err := os.ReadFile(fullpath)
 		if err != nil {
-			logger.Warnf("error reading file: %v", err)
+			logger.Errorf("error reading file: %v", err)
 			continue
 		}
 
-		row, err := jsonToPackage(data)
+		pkg, err := jsonToPackage(data)
 		if err != nil {
-			logger.Warnf("error reading JSON: %v\n", err)
+			logger.Errorf("error reading JSON: %v\n", err)
 			continue
 		}
 
-		csvData = append(csvData, *row)
+		csvData = append(csvData, *pkg)
 
 		if (i % batchSize) == 0 {
 			err := writePackages(csvData, pkgFile)
 			if err != nil {
-				logger.Warnf("error writing packages to csv: %v", err)
+				logger.Errorf("error writing packages to csv: %v", err)
 			}
 
 			csvData = nil

@@ -19,6 +19,8 @@ func main() {
 	argParser()
 	if debugMode {
 		logger.SetLevel(logrus.DebugLevel)
+	} else {
+		logger.SetLevel(logrus.FatalLevel)
 	}
 
 	jsonFiles, err := os.ReadDir(jsonDir)

@@ -27,45 +27,45 @@ func convertArrays(jsonFiles []fs.DirEntry) {
 		fullpath := filepath.Join(jsonDir, file.Name())
 		data, err := os.ReadFile(fullpath)
 		if err != nil {
-			logger.Warnf("error reading file: %v", err)
+			logger.Errorf("error reading file: %v", err)
 			continue
 		}
 
-		row, err := jsonToPackage(data)
+		pkg, err := jsonToPackage(data)
 		if err != nil {
-			logger.Warnf("error reading JSON: %v\n", err)
+			logger.Errorf("error reading JSON: %v\n", err)
 			continue
 		}
 
-		for _, value := range row.Maintainers {
-			maintainers = append(maintainers, []string{row.Pkgname, value})
+		for _, value := range pkg.Maintainers {
+			maintainers = append(maintainers, []string{pkg.Pkgname, value})
 		}
-		for _, value := range row.Groups {
-			groups = append(groups, []string{row.Pkgname, value})
+		for _, value := range pkg.Groups {
+			groups = append(groups, []string{pkg.Pkgname, value})
 		}
-		for _, value := range row.Licenses {
-			licenses = append(licenses, []string{row.Pkgname, value})
+		for _, value := range pkg.Licenses {
+			licenses = append(licenses, []string{pkg.Pkgname, value})
 		}
-		for _, value := range row.Conflicts {
-			conflicts = append(conflicts, []string{row.Pkgname, value})
+		for _, value := range pkg.Conflicts {
+			conflicts = append(conflicts, []string{pkg.Pkgname, value})
 		}
-		for _, value := range row.Provides {
-			provides = append(provides, []string{row.Pkgname, value})
+		for _, value := range pkg.Provides {
+			provides = append(provides, []string{pkg.Pkgname, value})
 		}
-		for _, value := range row.Replaces {
-			replaces = append(replaces, []string{row.Pkgname, value})
+		for _, value := range pkg.Replaces {
+			replaces = append(replaces, []string{pkg.Pkgname, value})
 		}
-		for _, value := range row.Depends {
-			depends = append(depends, []string{row.Pkgname, value})
+		for _, value := range pkg.Depends {
+			depends = append(depends, []string{pkg.Pkgname, value})
 		}
-		for _, value := range row.Optdepends {
-			optdepends = append(optdepends, []string{row.Pkgname, value})
+		for _, value := range pkg.Optdepends {
+			optdepends = append(optdepends, []string{pkg.Pkgname, value})
 		}
-		for _, value := range row.Makedepends {
-			makedepends = append(makedepends, []string{row.Pkgname, value})
+		for _, value := range pkg.Makedepends {
+			makedepends = append(makedepends, []string{pkg.Pkgname, value})
 		}
-		for _, value := range row.Checkdepends {
-			checkdepends = append(checkdepends, []string{row.Pkgname, value})
+		for _, value := range pkg.Checkdepends {
+			checkdepends = append(checkdepends, []string{pkg.Pkgname, value})
 		}
 
 	}
