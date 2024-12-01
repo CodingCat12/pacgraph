@@ -84,24 +84,24 @@ func writePackages(packages []Package, filePath string) {
 
 	var result [][]string
 
-	for row, pkg := range packages {
-		result = append(result, []string{})
-		result[row] = append(result[row], pkg.Pkgname)
-		result[row] = append(result[row], pkg.Pkgbase)
-		result[row] = append(result[row], pkg.Repo)
-		result[row] = append(result[row], pkg.Arch)
-		result[row] = append(result[row], pkg.Pkgver)
-		result[row] = append(result[row], pkg.Pkgrel)
-		result[row] = append(result[row], fmt.Sprintf("%v", pkg.Epoch))
-		result[row] = append(result[row], pkg.Pkgdesc)
-		result[row] = append(result[row], pkg.URL)
-		result[row] = append(result[row], pkg.Filename)
-		result[row] = append(result[row], fmt.Sprintf("%v", pkg.CompressedSize))
-		result[row] = append(result[row], fmt.Sprintf("%v", pkg.InstalledSize))
-		result[row] = append(result[row], pkg.BuildDate)
-		result[row] = append(result[row], pkg.LastUpdate)
-		result[row] = append(result[row], fmt.Sprintf("%v", pkg.FlagDate))
-		result[row] = append(result[row], pkg.Packager)
+	for _, pkg := range packages {
+		result = append(result, []string{
+			pkg.Pkgname,
+			pkg.Pkgbase,
+			pkg.Repo,
+			pkg.Arch,
+			pkg.Pkgver,
+			pkg.Pkgrel,
+			fmt.Sprintf("%v", pkg.Epoch),
+			pkg.Pkgdesc,
+			pkg.URL,
+			pkg.Filename,
+			fmt.Sprintf("%v", pkg.CompressedSize),
+			fmt.Sprintf("%v", pkg.InstalledSize),
+			pkg.BuildDate,
+			pkg.LastUpdate,
+			fmt.Sprintf("%v", pkg.FlagDate),
+			pkg.Packager})
 	}
 
 	csvWriter := csv.NewWriter(bufio.NewWriter(file))
