@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"encoding/csv"
 	"io/fs"
-	"log"
 	"os"
 	"path/filepath"
 )
@@ -28,13 +27,13 @@ func convertArrays(jsonFiles []fs.DirEntry) {
 		fullpath := filepath.Join(jsonDir, file.Name())
 		data, err := os.ReadFile(fullpath)
 		if err != nil {
-			log.Printf("error reading file: %v", err)
+			logger.Warnf("error reading file: %v", err)
 			continue
 		}
 
 		row, err := jsonToPackage(data)
 		if err != nil {
-			log.Printf("error reading JSON: %v\n", err)
+			logger.Warnf("error reading JSON: %v\n", err)
 			continue
 		}
 
