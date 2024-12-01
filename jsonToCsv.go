@@ -3,12 +3,13 @@ package main
 import (
 	"bufio"
 	"encoding/csv"
-	"encoding/json"
 	"fmt"
 	"log"
 	"os"
 	"path/filepath"
 	"time"
+
+	"github.com/goccy/go-json"
 )
 
 var jsonDir string = filepath.Join("packages", "json")
