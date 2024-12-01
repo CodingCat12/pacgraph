@@ -7,19 +7,11 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"time"
 
 	"github.com/goccy/go-json"
 )
 
-var jsonDir string = filepath.Join("packages", "json")
-var csvDir string = filepath.Join("packages", "csv")
-
-var startTime time.Time = time.Now()
-
-func main() {
-	argParser()
-
+func convertValues() {
 	err := writeHeaders(pkgFile)
 	if err != nil {
 		log.Printf("error writing headers: %v", err)
@@ -63,10 +55,6 @@ func main() {
 
 	if len(csvData) > 0 {
 		writePackages(csvData, pkgFile)
-	}
-
-	if debugMode {
-		logSpecs()
 	}
 }
 
