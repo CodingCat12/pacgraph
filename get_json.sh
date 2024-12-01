@@ -18,7 +18,7 @@ for package in $packages
     set iteration (math $iteration + 1)
     set -l outfile packages/json/$package.json
 
-    if test -s $outfile
+    if test -s $outfile; and jq empty $outfile
         continue
     end
 

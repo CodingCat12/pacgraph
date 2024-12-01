@@ -8,7 +8,6 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"reflect"
 	"time"
 )
 
@@ -20,8 +19,7 @@ var startTime time.Time = time.Now()
 func main() {
 	argParser()
 
-	os.Truncate(pkgFile, 0)
-	writeCsvRow(Header, pkgFile)
+	writeHeaders(pkgFile)
 
 	jsonFiles, err := os.ReadDir(jsonDir)
 	if err != nil {
@@ -41,8 +39,13 @@ func main() {
 			continue
 		}
 
-		row := getCsvData(data)
-		csvData = append(csvData, row)
+		row, err := jsonToPackage(data)
+		if err != nil {
+			log.Printf("error reading JSON: %v\n", err)
+			continue
+		}
+
+		csvData = append(csvData, *row)
 
 		if (i % batchSize) == 0 {
 			writePackages(csvData, pkgFile)
@@ -59,16 +62,15 @@ func main() {
 	}
 }
 
-func getCsvData(data []byte) Package {
+func jsonToPackage(data []byte) (*Package, error) {
 	var unmarshaled Package
 
 	err := json.Unmarshal(data, &unmarshaled)
 	if err != nil {
-		log.Printf("error reading JSON: %v\n", err)
-		return Package{}
+		return nil, err
 	}
 
-	return unmarshaled
+	return &unmarshaled, nil
 }
 
 func writePackages(packages []Package, filePath string) {
@@ -83,16 +85,22 @@ func writePackages(packages []Package, filePath string) {
 
 	for row, pkg := range packages {
 		result = append(result, []string{})
-		val := reflect.ValueOf(pkg)
-		for i := 0; i < val.NumField(); i++ {
-			field := val.Field(i)
-			fieldType := field.Kind()
-			if fieldType == reflect.Slice {
-				continue
-			}
-
-			result[row] = append(result[row], fmt.Sprintf("%v", field.Interface()))
-		}
+		result[row] = append(result[row], pkg.Pkgname)
+		result[row] = append(result[row], pkg.Pkgbase)
+		result[row] = append(result[row], pkg.Repo)
+		result[row] = append(result[row], pkg.Arch)
+		result[row] = append(result[row], pkg.Pkgver)
+		result[row] = append(result[row], pkg.Pkgrel)
+		result[row] = append(result[row], fmt.Sprintf("%v", pkg.Epoch))
+		result[row] = append(result[row], pkg.Pkgdesc)
+		result[row] = append(result[row], pkg.URL)
+		result[row] = append(result[row], pkg.Filename)
+		result[row] = append(result[row], fmt.Sprintf("%v", pkg.CompressedSize))
+		result[row] = append(result[row], fmt.Sprintf("%v", pkg.InstalledSize))
+		result[row] = append(result[row], pkg.BuildDate)
+		result[row] = append(result[row], pkg.LastUpdate)
+		result[row] = append(result[row], fmt.Sprintf("%v", pkg.FlagDate))
+		result[row] = append(result[row], pkg.Packager)
 	}
 
 	csvWriter := csv.NewWriter(bufio.NewWriter(file))
@@ -105,8 +113,8 @@ func writePackages(packages []Package, filePath string) {
 	}
 }
 
-func writeCsvRow(row []string, filePath string) {
-	file, err := os.OpenFile(filePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+func writeHeaders(filePath string) {
+	file, err := os.OpenFile(filePath, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
 	if err != nil {
 		log.Printf("error opening file: %v\n", err)
 		return
@@ -116,7 +124,7 @@ func writeCsvRow(row []string, filePath string) {
 	csvWriter := csv.NewWriter(bufio.NewWriter(file))
 	csvWriter.UseCRLF = true
 
-	csvWriter.Write(row)
+	csvWriter.Write(Header[:])
 	csvWriter.Flush()
 	if err := csvWriter.Error(); err != nil {
 		log.Printf("error writing CSV data: %v\n", err)

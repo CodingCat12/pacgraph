@@ -29,7 +29,7 @@ type Package struct {
 	Checkdepends   []string `json:"checkdepends"`
 }
 
-var Header []string = []string{
+var Header = [...]string{
 	"pkgname",
 	"pkgbase",
 	"repo",
