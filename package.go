@@ -11,8 +11,8 @@ type Package struct {
 	Pkgdesc        string   `json:"pkgdesc"`
 	URL            string   `json:"url"`
 	Filename       string   `json:"filename"`
-	CompressedSize int64    `json:"compressed_size"`
-	InstalledSize  int64    `json:"installed_size"`
+	CompressedSize uint64   `json:"compressed_size"`
+	InstalledSize  uint64   `json:"installed_size"`
 	BuildDate      string   `json:"build_date"`
 	LastUpdate     string   `json:"last_update"`
 	FlagDate       *string  `json:"flag_date"`
