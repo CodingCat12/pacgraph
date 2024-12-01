@@ -3,16 +3,16 @@ package main
 type Package struct {
 	Pkgname        string   `json:"pkgname"`
 	Pkgbase        string   `json:"pkgbase"`
-	Repo           string   `json:"repo"`
-	Arch           string   `json:"arch"`
+	Repo           Repo     `json:"repo"`
+	Arch           Arch     `json:"arch"`
 	Pkgver         string   `json:"pkgver"`
 	Pkgrel         string   `json:"pkgrel"`
 	Epoch          int      `json:"epoch"`
 	Pkgdesc        string   `json:"pkgdesc"`
 	URL            string   `json:"url"`
 	Filename       string   `json:"filename"`
-	CompressedSize int      `json:"compressed_size"`
-	InstalledSize  int      `json:"installed_size"`
+	CompressedSize int64    `json:"compressed_size"`
+	InstalledSize  int64    `json:"installed_size"`
 	BuildDate      string   `json:"build_date"`
 	LastUpdate     string   `json:"last_update"`
 	FlagDate       *string  `json:"flag_date"`
@@ -29,7 +29,21 @@ type Package struct {
 	Checkdepends   []string `json:"checkdepends"`
 }
 
-var Header = [...]string{
+type Repo string
+type Arch string
+
+const (
+	Core     Repo = "core"
+	Extra    Repo = "extra"
+	Multilib Repo = "multilib"
+)
+
+const (
+	Any    Arch = "any"
+	X86_64 Arch = "x86_64"
+)
+
+var header = [...]string{
 	"pkgname",
 	"pkgbase",
 	"repo",

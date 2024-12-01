@@ -20,7 +20,10 @@ var startTime time.Time = time.Now()
 func main() {
 	argParser()
 
-	writeHeaders(pkgFile)
+	err := writeHeaders(pkgFile)
+	if err != nil {
+		log.Printf("error writing headers: %v", err)
+	}
 
 	jsonFiles, err := os.ReadDir(jsonDir)
 	if err != nil {
@@ -49,7 +52,11 @@ func main() {
 		csvData = append(csvData, *row)
 
 		if (i % batchSize) == 0 {
-			writePackages(csvData, pkgFile)
+			err := writePackages(csvData, pkgFile)
+			if err != nil {
+				log.Printf("error writing packages to csv: %v", err)
+			}
+
 			csvData = nil
 		}
 	}
@@ -74,11 +81,10 @@ func jsonToPackage(data []byte) (*Package, error) {
 	return &unmarshaled, nil
 }
 
-func writePackages(packages []Package, filePath string) {
+func writePackages(packages []Package, filePath string) error {
 	file, err := os.OpenFile(filePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
-		log.Printf("error opening file: %v\n", err)
-		return
+		return err
 	}
 	defer file.Close()
 
@@ -88,8 +94,8 @@ func writePackages(packages []Package, filePath string) {
 		result = append(result, []string{
 			pkg.Pkgname,
 			pkg.Pkgbase,
-			pkg.Repo,
-			pkg.Arch,
+			fmt.Sprintf("%v", pkg.Repo),
+			fmt.Sprintf("%v", pkg.Arch),
 			pkg.Pkgver,
 			pkg.Pkgrel,
 			fmt.Sprintf("%v", pkg.Epoch),
@@ -110,24 +116,27 @@ func writePackages(packages []Package, filePath string) {
 	csvWriter.WriteAll(result)
 	csvWriter.Flush()
 	if err := csvWriter.Error(); err != nil {
-		log.Printf("error writing CSV data: %v\n", err)
+		return err
 	}
+
+	return nil
 }
 
-func writeHeaders(filePath string) {
+func writeHeaders(filePath string) error {
 	file, err := os.OpenFile(filePath, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
 	if err != nil {
-		log.Printf("error opening file: %v\n", err)
-		return
+		return err
 	}
 	defer file.Close()
 
 	csvWriter := csv.NewWriter(bufio.NewWriter(file))
 	csvWriter.UseCRLF = true
 
-	csvWriter.Write(Header[:])
+	csvWriter.Write(header[:])
 	csvWriter.Flush()
 	if err := csvWriter.Error(); err != nil {
-		log.Printf("error writing CSV data: %v\n", err)
+		return err
 	}
+
+	return nil
 }
