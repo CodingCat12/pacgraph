@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"encoding/csv"
 	"fmt"
+	"io/fs"
 	"log"
 	"os"
 	"path/filepath"
@@ -11,15 +12,10 @@ import (
 	"github.com/goccy/go-json"
 )
 
-func convertValues() {
+func convertValues(jsonFiles []fs.DirEntry) {
 	err := writeHeaders(pkgFile)
 	if err != nil {
 		log.Printf("error writing headers: %v", err)
-	}
-
-	jsonFiles, err := os.ReadDir(jsonDir)
-	if err != nil {
-		log.Fatalf("error opening directory: %v\n", jsonDir)
 	}
 
 	var csvData []Package
