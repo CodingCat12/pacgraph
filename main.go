@@ -8,7 +8,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-var csvDir string = filepath.Join("packages", "csv")
+var csvDir string = "packages"
 var pkgFile string = filepath.Join(csvDir, "packages.csv")
 
 var startTime time.Time = time.Now()
@@ -29,24 +29,24 @@ func main() {
 	}
 
 	RemoveContents(csvDir)
-	writeHeaders("packages/csv/packages.csv")
+	writeHeaders(pkgFile)
 	convertValues(data)
 	convertArrays(data)
 	logSpecs()
 }
 
-func RemoveContents(dir string) error {
-	d, err := os.Open(dir)
+func RemoveContents(dirName string) error {
+	dir, err := os.Open(dirName)
 	if err != nil {
 		return err
 	}
-	defer d.Close()
-	names, err := d.Readdirnames(-1)
+	defer dir.Close()
+	names, err := dir.Readdirnames(-1)
 	if err != nil {
 		return err
 	}
 	for _, name := range names {
-		err = os.RemoveAll(filepath.Join(dir, name))
+		err = os.RemoveAll(filepath.Join(dirName, name))
 		if err != nil {
 			return err
 		}
