@@ -8,61 +8,39 @@ import (
 )
 
 func convertArrays(packages []Package) {
-	var maintainers [][]string
-	var groups [][]string
-	var licenses [][]string
-	var conflicts [][]string
-	var provides [][]string
-	var replaces [][]string
-	var depends [][]string
-	var optdepends [][]string
-	var makedepends [][]string
-	var checkdepends [][]string
-	for _, pkg := range packages {
-		for _, value := range pkg.Groups {
-			groups = append(groups, []string{pkg.Pkgname, value})
-		}
-		for _, value := range pkg.Licenses {
-			licenses = append(licenses, []string{pkg.Pkgname, value})
-		}
-		for _, value := range pkg.Conflicts {
-			conflicts = append(conflicts, []string{pkg.Pkgname, value})
-		}
-		for _, value := range pkg.Provides {
-			provides = append(provides, []string{pkg.Pkgname, value})
-		}
-		for _, value := range pkg.Replaces {
-			replaces = append(replaces, []string{pkg.Pkgname, value})
-		}
-		for _, value := range pkg.Depends {
-			depends = append(depends, []string{pkg.Pkgname, value})
-		}
-		for _, value := range pkg.Optdepends {
-			optdepends = append(optdepends, []string{pkg.Pkgname, value})
-		}
-		for _, value := range pkg.Makedepends {
-			makedepends = append(makedepends, []string{pkg.Pkgname, value})
-		}
-		for _, value := range pkg.Checkdepends {
-			checkdepends = append(checkdepends, []string{pkg.Pkgname, value})
-		}
-
+	type attributeData struct {
+		field   func(pkg Package) []string
+		file    string
+		records [][]string
 	}
 
-	writeToCsv(maintainers, filepath.Join(csvDir, "maintainers.csv"))
-	writeToCsv(groups, filepath.Join(csvDir, "groups.csv"))
-	writeToCsv(licenses, filepath.Join(csvDir, "licenses.csv"))
-	writeToCsv(conflicts, filepath.Join(csvDir, "conflicts.csv"))
-	writeToCsv(provides, filepath.Join(csvDir, "provides.csv"))
-	writeToCsv(replaces, filepath.Join(csvDir, "replaces.csv"))
-	writeToCsv(depends, filepath.Join(csvDir, "depends.csv"))
-	writeToCsv(optdepends, filepath.Join(csvDir, "optdepends.csv"))
-	writeToCsv(makedepends, filepath.Join(csvDir, "makedepends.csv"))
-	writeToCsv(checkdepends, filepath.Join(csvDir, "checkdepends.csv"))
+	attributes := []attributeData{
+		{func(pkg Package) []string { return pkg.Groups }, "groups.csv", nil},
+		{func(pkg Package) []string { return pkg.Licenses }, "licenses.csv", nil},
+		{func(pkg Package) []string { return pkg.Conflicts }, "conflicts.csv", nil},
+		{func(pkg Package) []string { return pkg.Provides }, "provides.csv", nil},
+		{func(pkg Package) []string { return pkg.Replaces }, "replaces.csv", nil},
+		{func(pkg Package) []string { return pkg.Depends }, "depends.csv", nil},
+		{func(pkg Package) []string { return pkg.Optdepends }, "optdepends.csv", nil},
+		{func(pkg Package) []string { return pkg.Makedepends }, "makedepends.csv", nil},
+		{func(pkg Package) []string { return pkg.Checkdepends }, "checkdepends.csv", nil},
+	}
+
+	for _, pkg := range packages {
+		for i := range attributes {
+			for _, value := range attributes[i].field(pkg) {
+				attributes[i].records = append(attributes[i].records, []string{pkg.Pkgname, value})
+			}
+		}
+	}
+
+	for _, attr := range attributes {
+		writeToCsv(attr.records, filepath.Join(csvDir, attr.file))
+	}
 }
 
 func writeToCsv(packages [][]string, filePath string) error {
-	file, err := os.OpenFile(filePath, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
+	file, err := os.OpenFile(filePath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
 	if err != nil {
 		return err
 	}

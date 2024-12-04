@@ -28,10 +28,15 @@ type Repo string
 type Arch string
 
 const (
-	Core     Repo = "core"
-	Extra    Repo = "extra"
-	Multilib Repo = "multilib"
+	Core            Repo = "core"
+	Extra           Repo = "extra"
+	Multilib        Repo = "multilib"
+	CoreTesting     Repo = "core-testing"
+	ExtraTesting    Repo = "extra-testing"
+	MultilibTesting Repo = "multilib-testing"
 )
+
+var repos = []Repo{"core", "extra", "multilib"}
 
 const (
 	Any    Arch = "any"
