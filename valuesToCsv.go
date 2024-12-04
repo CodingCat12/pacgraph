@@ -4,44 +4,18 @@ import (
 	"bufio"
 	"encoding/csv"
 	"fmt"
-	"io/fs"
 	"os"
-	"path/filepath"
-
-	"github.com/goccy/go-json"
 )
 
-func convertValues(jsonFiles []fs.DirEntry) {
-	err := writeHeaders(pkgFile)
-	if err != nil {
-		logger.Errorf("error writing headers: %v", err)
-	}
-
+func convertValues(packages []Package) {
 	var csvData []Package
-	for i, file := range jsonFiles {
-		if file.IsDir() {
-			continue
-		}
-
-		fullpath := filepath.Join(jsonDir, file.Name())
-		data, err := os.ReadFile(fullpath)
-		if err != nil {
-			logger.Errorf("error reading file: %v", err)
-			continue
-		}
-
-		pkg, err := jsonToPackage(data)
-		if err != nil {
-			logger.Errorf("error reading JSON: %v\n", err)
-			continue
-		}
-
-		csvData = append(csvData, *pkg)
+	for i, pkg := range packages {
+		csvData = append(csvData, pkg)
 
 		if (i % batchSize) == 0 {
 			err := writePackages(csvData, pkgFile)
 			if err != nil {
-				logger.Errorf("error writing packages to csv: %v", err)
+				logger.Fatalf("error writing packages to csv: %v", err)
 			}
 
 			csvData = nil
@@ -51,17 +25,6 @@ func convertValues(jsonFiles []fs.DirEntry) {
 	if len(csvData) > 0 {
 		writePackages(csvData, pkgFile)
 	}
-}
-
-func jsonToPackage(data []byte) (*Package, error) {
-	var unmarshaled Package
-
-	err := json.Unmarshal(data, &unmarshaled)
-	if err != nil {
-		return nil, err
-	}
-
-	return &unmarshaled, nil
 }
 
 func writePackages(packages []Package, filePath string) error {
@@ -80,16 +43,12 @@ func writePackages(packages []Package, filePath string) error {
 			fmt.Sprintf("%v", pkg.Repo),
 			fmt.Sprintf("%v", pkg.Arch),
 			pkg.Pkgver,
-			pkg.Pkgrel,
-			fmt.Sprintf("%v", pkg.Epoch),
 			pkg.Pkgdesc,
 			pkg.URL,
 			pkg.Filename,
 			fmt.Sprintf("%v", pkg.CompressedSize),
 			fmt.Sprintf("%v", pkg.InstalledSize),
 			pkg.BuildDate,
-			pkg.LastUpdate,
-			fmt.Sprintf("%v", pkg.FlagDate),
 			pkg.Packager})
 	}
 

@@ -3,12 +3,11 @@ package main
 import (
 	"bufio"
 	"encoding/csv"
-	"io/fs"
 	"os"
 	"path/filepath"
 )
 
-func convertArrays(jsonFiles []fs.DirEntry) {
+func convertArrays(packages []Package) {
 	var maintainers [][]string
 	var groups [][]string
 	var licenses [][]string
@@ -19,27 +18,7 @@ func convertArrays(jsonFiles []fs.DirEntry) {
 	var optdepends [][]string
 	var makedepends [][]string
 	var checkdepends [][]string
-	for _, file := range jsonFiles {
-		if file.IsDir() {
-			continue
-		}
-
-		fullpath := filepath.Join(jsonDir, file.Name())
-		data, err := os.ReadFile(fullpath)
-		if err != nil {
-			logger.Errorf("error reading file: %v", err)
-			continue
-		}
-
-		pkg, err := jsonToPackage(data)
-		if err != nil {
-			logger.Errorf("error reading JSON: %v\n", err)
-			continue
-		}
-
-		for _, value := range pkg.Maintainers {
-			maintainers = append(maintainers, []string{pkg.Pkgname, value})
-		}
+	for _, pkg := range packages {
 		for _, value := range pkg.Groups {
 			groups = append(groups, []string{pkg.Pkgname, value})
 		}

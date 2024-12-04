@@ -6,17 +6,12 @@ type Package struct {
 	Repo           Repo     `json:"repo"`
 	Arch           Arch     `json:"arch"`
 	Pkgver         string   `json:"pkgver"`
-	Pkgrel         string   `json:"pkgrel"`
-	Epoch          int      `json:"epoch"`
 	Pkgdesc        string   `json:"pkgdesc"`
 	URL            string   `json:"url"`
 	Filename       string   `json:"filename"`
-	CompressedSize uint64   `json:"compressed_size"`
-	InstalledSize  uint64   `json:"installed_size"`
+	CompressedSize int64    `json:"compressed_size"`
+	InstalledSize  int64    `json:"installed_size"`
 	BuildDate      string   `json:"build_date"`
-	LastUpdate     string   `json:"last_update"`
-	FlagDate       *string  `json:"flag_date"`
-	Maintainers    []string `json:"maintainers"`
 	Packager       string   `json:"packager"`
 	Groups         []string `json:"groups"`
 	Licenses       []string `json:"licenses"`
@@ -49,15 +44,11 @@ var header = [...]string{
 	"repo",
 	"arch",
 	"pkgver",
-	"pkgrel",
-	"epoch",
 	"pkgdesc",
 	"URL",
 	"filename",
 	"compressedSize",
 	"installedSize",
 	"buildDate",
-	"lastUpdate",
-	"flagDate",
 	"packager",
 }

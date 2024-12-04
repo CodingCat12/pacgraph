@@ -1,14 +1,12 @@
 package main
 
 import (
-	"os"
 	"path/filepath"
 	"time"
 
 	"github.com/sirupsen/logrus"
 )
 
-var jsonDir string = filepath.Join("packages", "json")
 var csvDir string = filepath.Join("packages", "csv")
 
 var startTime time.Time = time.Now()
@@ -23,12 +21,13 @@ func main() {
 		logger.SetLevel(logrus.FatalLevel)
 	}
 
-	jsonFiles, err := os.ReadDir(jsonDir)
+	data, err := getData()
 	if err != nil {
-		logger.Fatalf("error opening directory: %v\n", jsonDir)
+		logger.Fatalf("failed to retrieve package data, %v", err)
 	}
 
-	convertValues(jsonFiles)
-	convertArrays(jsonFiles)
+	writeHeaders("packages/csv/packages.csv")
+	convertValues(data)
+	convertArrays(data)
 	logSpecs()
 }
