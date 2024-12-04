@@ -9,7 +9,7 @@ import (
 )
 
 var csvDir string = filepath.Join("packages", "csv")
-var pkgFile string = filepath.Join(csvDir, "packages.json")
+var pkgFile string = filepath.Join(csvDir, "packages.csv")
 
 var startTime time.Time = time.Now()
 
