@@ -27,21 +27,25 @@ func loadConfig(configFilePath string) (Config, error) {
 	return config, nil
 }
 
-func parseArgs() {
-	flag.BoolVar(&adjustedConfig.DebugMode, "debug", defaultConfig.DebugMode, "Enable debug mode")
-	flag.IntVar(&adjustedConfig.BatchSize, "batchsize", defaultConfig.BatchSize, "How many rows to write at once (default: 5000)")
-	flag.StringVar(&adjustedConfig.Paths.PackageFile, "packagesfile", defaultConfig.Paths.PackageFile, "")
-	flag.StringVar(&adjustedConfig.Paths.GroupsFile, "groupsfile", defaultConfig.Paths.GroupsFile, "")
-	flag.StringVar(&adjustedConfig.Paths.LicensesFile, "licensesfile", defaultConfig.Paths.LicensesFile, "")
-	flag.StringVar(&adjustedConfig.Paths.ConflictsFile, "conflictsfile", defaultConfig.Paths.ConflictsFile, "")
-	flag.StringVar(&adjustedConfig.Paths.ProvidesFile, "providesfile", defaultConfig.Paths.ProvidesFile, "Path to the provides CSV file")
-	flag.StringVar(&adjustedConfig.Paths.ReplacesFile, "replacesfile", defaultConfig.Paths.ReplacesFile, "Path to the replaces CSV file")
-	flag.StringVar(&adjustedConfig.Paths.DependsFile, "dependsfile", defaultConfig.Paths.DependsFile, "Path to the depends CSV file")
-	flag.StringVar(&adjustedConfig.Paths.OptDependsFile, "optdependsfile", defaultConfig.Paths.OptDependsFile, "Path to the optional depends CSV file")
-	flag.StringVar(&adjustedConfig.Paths.MakeDependsFile, "makedependsfile", defaultConfig.Paths.MakeDependsFile, "Path to the make depends CSV file")
-	flag.StringVar(&adjustedConfig.Paths.CheckDependsFile, "checkdependsfile", defaultConfig.Paths.CheckDependsFile, "Path to the check depends CSV file")
+func parseArgs() Config {
+	result := Config{}
+
+	flag.BoolVar(&result.DebugMode, "debug", defaultConfig.DebugMode, "Enable debug mode")
+	flag.IntVar(&result.BatchSize, "batchsize", defaultConfig.BatchSize, "How many rows to write at once (default: 5000)")
+	flag.StringVar(&result.Paths.PackageFile, "packagesfile", defaultConfig.Paths.PackageFile, "")
+	flag.StringVar(&result.Paths.GroupsFile, "groupsfile", defaultConfig.Paths.GroupsFile, "")
+	flag.StringVar(&result.Paths.LicensesFile, "licensesfile", defaultConfig.Paths.LicensesFile, "")
+	flag.StringVar(&result.Paths.ConflictsFile, "conflictsfile", defaultConfig.Paths.ConflictsFile, "")
+	flag.StringVar(&result.Paths.ProvidesFile, "providesfile", defaultConfig.Paths.ProvidesFile, "Path to the provides CSV file")
+	flag.StringVar(&result.Paths.ReplacesFile, "replacesfile", defaultConfig.Paths.ReplacesFile, "Path to the replaces CSV file")
+	flag.StringVar(&result.Paths.DependsFile, "dependsfile", defaultConfig.Paths.DependsFile, "Path to the depends CSV file")
+	flag.StringVar(&result.Paths.OptDependsFile, "optdependsfile", defaultConfig.Paths.OptDependsFile, "Path to the optional depends CSV file")
+	flag.StringVar(&result.Paths.MakeDependsFile, "makedependsfile", defaultConfig.Paths.MakeDependsFile, "Path to the make depends CSV file")
+	flag.StringVar(&result.Paths.CheckDependsFile, "checkdependsfile", defaultConfig.Paths.CheckDependsFile, "Path to the check depends CSV file")
 
 	flag.Parse()
+
+	return result
 }
 
 type Config struct {

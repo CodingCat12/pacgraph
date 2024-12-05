@@ -18,7 +18,7 @@ var logger = logrus.New()
 
 func main() {
 	defaultConfig, _ = loadConfig("config.json")
-	parseArgs()
+	adjustedConfig = parseArgs()
 	if adjustedConfig.DebugMode {
 		logger.SetLevel(logrus.DebugLevel)
 	} else {
