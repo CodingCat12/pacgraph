@@ -27,22 +27,33 @@ func convertArrays(packages []Package) {
 		{func(pkg Package) []string { return pkg.Checkdepends }, "checkdepends.csv", "checkdepends", nil},
 	}
 
-	for _, pkg := range packages {
-		for i := range attributes {
-			for _, value := range attributes[i].field(pkg) {
-				attributes[i].records = append(attributes[i].records, []string{pkg.Pkgname, value})
+	for _, attr := range attributes {
+		file := filepath.Join(csvDir, attr.file)
+		header := []string{"pkg", attr.name}
+		writeHeader(header, file)
+	}
+
+	for i, pkg := range packages {
+		for j, attr := range attributes {
+			for _, value := range attributes[j].field(pkg) {
+				attributes[j].records = append(attributes[j].records, []string{pkg.Pkgname, value})
+			}
+
+			if (i % batchSize) == 0 {
+				file := filepath.Join(csvDir, attr.file)
+				writeToCsv(attr.records, file)
+				attributes[j].records = nil
 			}
 		}
 	}
 
 	for _, attr := range attributes {
 		file := filepath.Join(csvDir, attr.file)
-		header := []string{"pkg", attr.name}
-		writeToCsv(attr.records, header, file)
+		writeToCsv(attr.records, file)
 	}
 }
 
-func writeToCsv(data [][]string, header []string, filePath string) error {
+func writeToCsv(data [][]string, filePath string) error {
 	file, err := os.OpenFile(filePath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
 	if err != nil {
 		return err
@@ -52,7 +63,6 @@ func writeToCsv(data [][]string, header []string, filePath string) error {
 	csvWriter := csv.NewWriter(bufio.NewWriter(file))
 	csvWriter.UseCRLF = true
 
-	csvWriter.Write(header)
 	csvWriter.WriteAll(data)
 	csvWriter.Flush()
 	if err := csvWriter.Error(); err != nil {

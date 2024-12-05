@@ -1,5 +1,4 @@
 pkg,replaces
-acl,xfsacl
 attr,xfsattr
 binutils,binutils-multilib
 btrfs-progs,btrfs-progs-unstable
@@ -374,7 +373,6 @@ kde-utilities-meta,kdeutils-meta
 kdeclarative5,kdeclarative
 kded5,kded
 kdesdk-kio,kdesdk-kioslaves
-kdesu5,kdesu
 kdiagram5,kdiagram
 kdnssd5,kdnssd
 kdoctools5,kdoctools
@@ -494,7 +492,6 @@ lirc,lirc-utils
 lite-xl,lite-xl-bin
 localsearch,tracker3-miners
 lrcalc,lrcalc1
-lua-luarepl,lua-repl
 lua-luautf8,lua-utf8
 lua-std-debug,lua-std-_debug
 lua51-expat,luaexpat
@@ -510,7 +507,6 @@ lua53-luarepl,lua53-repl
 lua53-luautf8,lua53-utf8
 lua53-sdl2,lua-sdl2
 lua53-std-debug,lua53-std-_debug
-luanti,minetest
 luanti-common,minetest-common
 luanti-server,minetest-server
 luarocks,luarocks5.1
@@ -573,7 +569,6 @@ molecule-plugins,molecule-podman
 molecule-plugins,molecule-vagrant
 mongo-c-driver,libbson
 mongo-c-driver,libmongoc
-monitoring-plugins,nagios-plugins
 moosefs,mfs-chunkserver
 moosefs,mfs-client
 moosefs,mfs-master
@@ -582,8 +577,6 @@ mozo,mozo-gtk3
 mumble-server,murmur
 mygui,mygui-docs
 nautilus-python,python-nautilus
-networkmanager-l2tp,networkmanager-l2tp-gtk3
-networkmanager-l2tp,networkmanager-l2tp-gtk4
 networkmanager-qt5,networkmanager-qt
 new-session-manager,non-session-manager
 newsboat,newsbeuter
@@ -949,7 +942,6 @@ xf86-video-intel,xf86-video-intel-uxa
 xf86-video-intel,xf86-video-intel-sna
 xh,ht-rs
 xh,ht
-xkeyboard-config,xkbdata
 xorg-font-util,font-util
 xorg-fonttosfnt,fonttosfnt
 xorg-mkfontscale,xorg-mkfontdir

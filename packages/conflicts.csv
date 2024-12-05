@@ -1,5 +1,4 @@
 pkg,conflicts
-acl,xfsacl
 attr,xfsattr
 binutils,binutils-multilib
 btrfs-progs,btrfs-progs-unstable
@@ -389,7 +388,6 @@ kdbusaddons5,kdbusaddons
 kdeclarative5,kdeclarative
 kded5,kded
 kdesdk-kio,kdesdk-kioslaves
-kdesu5,kdesu
 kdiagram5,kdiagram
 kdnssd5,kdnssd
 kdoctools5,kdoctools
@@ -547,7 +545,6 @@ libreoffice-fresh-lb,libreoffice-lb
 libreoffice-fresh-lo,libreoffice-lo
 libreoffice-fresh-lt,libreoffice-lt
 libreoffice-fresh-lv,libreoffice-lv
-libreoffice-fresh-mai,libreoffice-mai
 libreoffice-fresh-mk,libreoffice-mk
 libreoffice-fresh-ml,libreoffice-ml
 libreoffice-fresh-mn,libreoffice-mn
@@ -748,7 +745,6 @@ lua51-zlib,lua51-lzlib
 lua52-zlib,lua52-lzlib
 lua53-sdl2,lua-sdl2
 lua53-zlib,lua53-lzlib
-luanti,minetest
 luanti-common,minetest-common
 luanti-server,minetest-server
 luit,xorg-luit
@@ -832,7 +828,6 @@ molecule-plugins,molecule-podman
 molecule-plugins,molecule-vagrant
 mongo-c-driver,libbson
 mongo-c-driver,libmongoc
-monitoring-plugins,nagios-plugins
 mono,monodoc
 mono-msbuild,msbuild
 mono-msbuild-sdkresolver,msbuild-sdkresolver
@@ -850,8 +845,6 @@ ndiswrapper-dkms,NDISWRAPPER-MODULE
 netcdf-fortran-openmpi,netcdf-fortran
 netcdf-openmpi,netcdf
 netstandard-targeting-pack,netstandard-targeting-pack-2.1
-networkmanager-l2tp,networkmanager-l2tp-gtk3
-networkmanager-l2tp,networkmanager-l2tp-gtk4
 networkmanager-qt5,networkmanager-qt
 new-session-manager,non-session-manager
 nextcloud-client,nextcloud-client-cloudproviders
@@ -1076,7 +1069,6 @@ redo-python,redo-jdebp
 redo-sh,redo-python
 redo-sh,redo-jdebp
 redo-sh,redo-c
-referenceassemblies-pcl,mono-pcl
 rofi-wayland,rofi
 root-cuda,root
 ropper,python-ropper
@@ -1331,7 +1323,6 @@ xf86-video-vmware,X-ABI-VIDEODRV_VERSION
 xf86-video-voodoo,xorg-server
 xf86-video-voodoo,X-ABI-VIDEODRV_VERSION
 xf86-video-voodoo,X-ABI-VIDEODRV_VERSION
-xkeyboard-config,xkbdata
 xorg-appres,xorg-res-utils
 xorg-font-util,font-util
 xorg-fonts-alias-100dpi,xorg-fonts-alias

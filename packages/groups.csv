@@ -211,7 +211,6 @@ cutefish-core,cutefish
 cutefish-dock,cutefish
 cutefish-filemanager,cutefish
 cutefish-icons,cutefish
-cutefish-launcher,cutefish
 cutefish-qt-plugins,cutefish
 cutefish-screenlocker,cutefish
 cutefish-settings,cutefish
@@ -371,7 +370,6 @@ fabla,lv2-plugins
 fabla,pro-audio
 falkon,kde-applications
 falkon,kde-network
-faust,pro-audio
 fcitx,fcitx-im
 fcitx-qt5,fcitx-im
 fcitx-qt6,fcitx-im
@@ -574,8 +572,6 @@ gnome-weather,gnome
 gnustep-base,gnustep-core
 gnustep-make,gnustep-core
 gpicview,lxde
-granatier,kde-applications
-granatier,kde-games
 granite,pantheon
 granite7,pantheon
 grantlee-editor,kde-applications
@@ -767,7 +763,6 @@ kdesdk-kio,kde-sdk
 kdesdk-thumbnailers,kde-applications
 kdesdk-thumbnailers,kde-sdk
 kdesu,kf6
-kdesu5,kf5
 kdevelop,kde-applications
 kdevelop,kdevelop
 kdevelop-php,kde-applications
@@ -957,8 +952,6 @@ konqueror,kde-applications
 konqueror,kde-network
 konquest,kde-applications
 konquest,kde-games
-konsole,kde-applications
-konsole,kde-utilities
 kontact,kde-applications
 kontact,kde-pim
 kontrast,kde-applications
@@ -1099,7 +1092,6 @@ libretro-dolphin,libretro
 libretro-flycast,libretro
 libretro-gambatte,libretro
 libretro-genesis-plus-gx,libretro
-libretro-kronos,libretro
 libretro-mame,libretro
 libretro-mame2016,libretro
 libretro-melonds,libretro
@@ -1477,7 +1469,6 @@ qsynth,pro-audio
 qt5-3d,qt5
 qt5-base,qt5
 qt5-charts,qt5
-qt5-connectivity,qt5
 qt5-datavis3d,qt5
 qt5-declarative,qt5
 qt5-doc,qt5
@@ -1679,8 +1670,6 @@ spectmorph-clap,clap-plugins
 spectmorph-lv2,pro-audio
 spectmorph-lv2,lv2-plugins
 spectmorph-tools,pro-audio
-spectmorph-vst,pro-audio
-spectmorph-vst,vst-plugins
 spike,risc-v
 spirv-tools,vulkan-devel
 ssr,pro-audio
@@ -1736,7 +1725,6 @@ switchboard-plug-network,pantheon
 switchboard-plug-notifications,pantheon
 switchboard-plug-online-accounts,pantheon
 switchboard-plug-parental-controls,pantheon
-switchboard-plug-power,pantheon
 switchboard-plug-printers,pantheon
 switchboard-plug-security-privacy,pantheon
 switchboard-plug-sharing,pantheon
@@ -1804,7 +1792,6 @@ tesseract-data-fra,tesseract-data
 tesseract-data-frk,tesseract-data
 tesseract-data-frm,tesseract-data
 tesseract-data-fry,tesseract-data
-tesseract-data-gla,tesseract-data
 tesseract-data-gle,tesseract-data
 tesseract-data-glg,tesseract-data
 tesseract-data-grc,tesseract-data
@@ -2283,8 +2270,6 @@ zam-plugins-lv2,lv2-plugins
 zam-plugins-lv2,pro-audio
 zam-plugins-vst,vst-plugins
 zam-plugins-vst,pro-audio
-zam-plugins-vst3,vst3-plugins
-zam-plugins-vst3,pro-audio
 zanshin,kde-applications
 zanshin,kde-pim
 zita-ajbridge,pro-audio
