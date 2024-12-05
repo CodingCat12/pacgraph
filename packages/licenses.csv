@@ -1,4 +1,5 @@
 pkg,licenses
+acl,LGPL
 amd-ucode,custom
 archlinux-keyring,GPL-3.0-or-later
 argon2,Apache
@@ -407,6 +408,11 @@ npth,LGPL-2.1-or-later
 nspr,MPL-2.0
 nss,MPL-2.0
 openldap,custom
+openssh,BSD-2-Clause
+openssh,BSD-3-Clause
+openssh,ISC
+openssh,LicenseRef-Public-Domain
+openssh,MIT
 openssl,Apache-2.0
 openssl-1.1,custom:BSD
 p11-kit,BSD-3-Clause
@@ -678,6 +684,10 @@ alot,GPL-3.0-or-later
 alpine-chroot-install,MIT
 alpine-keyring,MIT
 alsa-card-profiles,LGPL-2.1-or-later
+alsa-firmware,BSD
+alsa-firmware,GPL2
+alsa-firmware,LGPL2.1
+alsa-firmware,custom
 alsa-lib,LGPL-2.1-or-later
 alsa-oss,GPL2
 alsa-plugins,GPL-2.0-or-later
@@ -911,6 +921,7 @@ attica,LGPL-3.0-only
 attica5,LGPL
 atuin,MIT
 aubio,GPL-3.0-or-later
+audacious,BSD
 audacious-plugins,BSD
 audacious-plugins,GPL
 audacity,GPL3
@@ -1138,6 +1149,7 @@ bluez-deprecated-tools,GPL-2.0-only
 bluez-hid2hci,GPL-2.0-only
 bluez-libs,LGPL-2.1-only
 bluez-mesh,GPL-2.0-only
+bluez-obex,GPL-2.0-only
 bluez-qt,LGPL-2.0-only
 bluez-qt,LGPL-3.0-only
 bluez-qt5,GPL2
@@ -1498,6 +1510,7 @@ cargo-geiger,MIT
 cargo-geiger,Apache
 cargo-generate,MIT
 cargo-generate,Apache-2.0
+cargo-generate-rpm,MIT
 cargo-hack,MIT
 cargo-hack,Apache-2.0
 cargo-insta,Apache-2.0
@@ -1730,6 +1743,7 @@ cloud-image-utils,GPL-3.0-only
 cloud-init,GPL-3.0-only OR Apache-2.0
 cloud-utils,GPL-3.0-only
 cloudflared,Apache-2.0
+clpeak,custom:unlicense
 clthreads,LGPL2.1
 clucene,Apache-2.0
 clucene,LGPL-2.0-or-later
@@ -1944,6 +1958,7 @@ cutefish-core,GPL
 cutefish-dock,GPL
 cutefish-filemanager,GPL
 cutefish-icons,GPL
+cutefish-launcher,GPL
 cutefish-qt-plugins,GPL
 cutefish-screenlocker,GPL
 cutefish-settings,GPL
@@ -2153,6 +2168,7 @@ dictd,GPL-2.0-or-later
 diesel-cli,MIT
 diesel-cli,Apache-2.0
 diff-so-fancy,MIT
+diffoscope,GPL-3.0-or-later
 diffpdf,GPL2
 diffstat,MIT
 difftastic,MIT
@@ -2399,6 +2415,7 @@ dvdstyler,GPL2
 dvgrab,GPL
 dvisvgm,GPL-3.0-or-later
 dvtm,MIT
+dwarffortress,custom:dwarffortress
 dwayland,LGPL
 dysk,MIT
 dzen2,MIT
@@ -2648,6 +2665,9 @@ fastjar,GPL
 fastjet,GPL2
 fatresize,GPL-3.0-or-later
 fatsort,GPL
+faust,GPL-2.0-or-later
+faust,GPL-3.0-or-later
+faust,LGPL-2.1-or-later
 faustpp,LicenseRef-BSL-1.0-with-template-exception
 fb-client,GPL3
 fbgrab,GPL
@@ -2857,6 +2877,7 @@ firefox-developer-edition-i18n-sl,MPL-2.0
 firefox-developer-edition-i18n-son,MPL-2.0
 firefox-developer-edition-i18n-sq,MPL-2.0
 firefox-developer-edition-i18n-sr,MPL-2.0
+firefox-developer-edition-i18n-sv-se,MPL-2.0
 firefox-developer-edition-i18n-szl,MPL-2.0
 firefox-developer-edition-i18n-ta,MPL-2.0
 firefox-developer-edition-i18n-te,MPL-2.0
@@ -3069,6 +3090,7 @@ fpc-src,GPL
 fping,custom
 fplll,LGPL
 fprintd,GPL-2.0-or-later
+fq,MIT
 fractal,GPL-3.0-only
 fragments,GPL-3.0-or-later
 frameworkintegration,LGPL-2.0-only
@@ -3284,6 +3306,7 @@ gdb-common,LGPL-3.0-or-later
 gdb-dashboard,MIT
 gdk-pixbuf-xlib,LGPL2.1
 gdk-pixbuf2,LGPL-2.0-or-later
+gdk-pixbuf2-docs,LGPL-2.0-or-later
 gdl,GPL
 gdm,GPL-2.0-or-later
 gdnsd,GPL3
@@ -3532,6 +3555,7 @@ gmt,LGPL
 gmt-doc,LGPL
 gmtk,GPL
 gmtp,BSD
+gn,BSD
 gnac,GPL-3.0-or-later
 gnome-2048,GPL3
 gnome-app-list,LGPL-2.1-or-later
@@ -3748,6 +3772,8 @@ grails,Apache
 grails-docs,Apache
 grammalecte,GPL3
 gramps,GPL
+granatier,GPL-2.0-or-later
+granatier,LGPL-2.0-or-later
 granite,LGPL3
 granite7,LGPL3
 grantlee,LGPL-2.1-or-later
@@ -3960,6 +3986,7 @@ gupnp-docs,LGPL-2.1-or-later
 gupnp-igd,LGPL
 gupnp-tools,GPL-2.0-or-later
 gutenprint,GPL
+guvcview,GPL3
 guvcview-common,GPL3
 guvcview-qt,GPL3
 gvfs,LGPL-2.0-only
@@ -4163,6 +4190,7 @@ haskell-containers-unicode-symbols,BSD
 haskell-contravariant,BSD
 haskell-contravariant-extras,MIT
 haskell-control-monad-free,custom:PublicDomain
+haskell-conversion,MIT
 haskell-conversion-bytestring,MIT
 haskell-conversion-text,MIT
 haskell-cookie,MIT
@@ -4362,6 +4390,7 @@ haskell-gi-gmodule,LGPL2.1
 haskell-gi-gobject,LGPL2_1
 haskell-gi-graphene,LGPL2_1
 haskell-gi-gsk,LGPL2.1
+haskell-gi-gtk,LGPL2.1
 haskell-gi-gtk-hs,LGPL2.1
 haskell-gi-gtk3,LGPL2.1
 haskell-gi-harfbuzz,LGPL2.1
@@ -4561,6 +4590,7 @@ haskell-js-chart,MIT
 haskell-js-dgtable,MIT
 haskell-js-flot,MIT
 haskell-js-jquery,MIT
+haskell-json,BSD
 haskell-json-ast,MIT
 haskell-juicypixels,BSD
 haskell-kan-extensions,BSD
@@ -4760,6 +4790,7 @@ haskell-pointed,BSD
 haskell-pointedlist,BSD
 haskell-polyparse,LGPL
 haskell-polysemy,BSD
+haskell-postgresql-binary,MIT
 haskell-postgresql-libpq,BSD
 haskell-postgresql-simple,BSD
 haskell-prelude-extras,BSD
@@ -4959,6 +4990,7 @@ haskell-tamarin-prover-sapic,GPL
 haskell-tamarin-prover-term,GPL
 haskell-tamarin-prover-theory,GPL
 haskell-tamarin-prover-utils,GPL
+haskell-tar,BSD
 haskell-tar-conduit,MIT
 haskell-tasty,MIT
 haskell-tasty-ant-xml,BSD
@@ -5158,6 +5190,7 @@ haskell-zinza,GPL
 haskell-zip-archive,BSD
 haskell-zlib,BSD
 haskell-zlib-bindings,BSD
+hasktags,BSD
 hatari,GPL
 haveged,GPL
 havn,MIT
@@ -5386,6 +5419,8 @@ ibus-sunpinyin,LGPL
 ibus-table,LGPL
 ibus-table-chinese,GPL3
 ibus-table-extraphrase,LGPL
+ibus-typing-booster,Apache-2.0
+ibus-typing-booster,GPL-3.0-or-later
 ibus-unikey,GPL
 icedtea-web,GPL2
 icedtea-web-doc,GPL2
@@ -5600,6 +5635,7 @@ jellyfin-server,GPL-2.0-or-later
 jellyfin-web,GPL-2.0-or-later
 jemalloc,BSD
 jenkins,MIT
+jenv,MIT
 jetring,GPL
 jgmenu,GPL
 jhead,custom
@@ -5874,6 +5910,7 @@ kdesdk-thumbnailers,GPL-2.0-or-later
 kdesdk-thumbnailers,LGPL-2.0-or-later
 kdesu,LGPL-2.0-only
 kdesu,LGPL-3.0-only
+kdesu5,LGPL
 kdesvn,GPL
 kdevelop,GPL-2.0-or-later
 kdevelop-meta,None
@@ -6141,6 +6178,8 @@ kongress,LGPL-2.0-or-later
 konqueror,LGPL-2.0-or-later
 konquest,GPL-2.0-or-later
 konquest,LGPL-2.0-or-later
+konsole,GPL-2.0-or-later
+konsole,LGPL-2.0-or-later
 konsolepart5,GPL
 konsolepart5,LGPL
 konsolepart5,FDL
@@ -6402,6 +6441,7 @@ lemurs,Apache-2.0 OR MIT
 lensfun,LGPL3
 leocad,GPL
 leptonica,custom
+lesspipe,GPL-2.0-or-later
 letterpress,GPL-3.0-or-later
 level-zero-headers,MIT
 level-zero-loader,MIT
@@ -6637,6 +6677,7 @@ libftdi-compat,GPL2
 libftdi-compat,LGPL2.1
 libgadu,LGPL2.1
 libgcrypt15,LGPL
+libgda6,LGPL-2.0-or-later
 libgda6-mysql,LGPL-2.0-or-later
 libgda6-postgres,LGPL-2.0-or-later
 libgda6-sqlcipher,LGPL-2.0-or-later
@@ -6866,6 +6907,7 @@ libmusicbrainz5,LGPL-2.1-only
 libmusicxml,MPL2
 libmwaw,LGPL-2.1-or-later OR MPL-2.0
 libmwaw-docs,LGPL-2.1-or-later OR MPL-2.0
+libmygpo-qt5,LGPL2.1
 libmypaint,ISC
 libmysofa,BSD-3-Clause
 libmythes,BSD-3-Clause-Modification
@@ -7089,6 +7131,7 @@ libreoffice-fresh-lb,LGPL-3.0-or-later
 libreoffice-fresh-lo,LGPL-3.0-or-later
 libreoffice-fresh-lt,LGPL-3.0-or-later
 libreoffice-fresh-lv,LGPL-3.0-or-later
+libreoffice-fresh-mai,LGPL-3.0-or-later
 libreoffice-fresh-mk,LGPL-3.0-or-later
 libreoffice-fresh-ml,LGPL-3.0-or-later
 libreoffice-fresh-mn,LGPL-3.0-or-later
@@ -7295,6 +7338,7 @@ libretro-flycast,GPL2
 libretro-gambatte,GPL2
 libretro-genesis-plus-gx,BSD
 libretro-genesis-plus-gx,LGPL2.1
+libretro-kronos,GPL2
 libretro-mame,custom
 libretro-mame2016,custom
 libretro-melonds,GPL2
@@ -7540,6 +7584,7 @@ libxi,MIT
 libxinerama,MIT
 libxinerama,MIT-open-group
 libxinerama,X11
+libxisf,GPL3
 libxkbcommon,MIT
 libxkbcommon-doc,MIT
 libxkbcommon-x11,MIT
@@ -7949,6 +7994,7 @@ lua-lpeg,MIT
 lua-lpeg-patterns,MIT
 lua-luaepnf,MIT
 lua-luaossl,MIT
+lua-luarepl,MIT
 lua-luarocks-build-rust-mlua,MIT
 lua-luassert,MIT
 lua-luautf8,MIT
@@ -8151,6 +8197,7 @@ luacheck,MIT
 luajit,MIT
 luakit,GPL3
 luametatex,GPL-2.0-or-later
+luanti,LGPL
 luanti-common,custom
 luanti-server,LGPL
 luarocks,custom
@@ -8375,6 +8422,7 @@ mate-user-share,GPL-2.0-or-later
 mate-utils,GPL-2.0-or-later
 materia-gtk-theme,GPL
 materia-kde,GPL3
+materialx,Apache
 mathjax,Apache-2.0
 mathjax2,Apache-2.0
 matrix-appservice-irc,Apache-2.0
@@ -8591,6 +8639,7 @@ monero,BSD-3-Clause
 monero-gui,BSD-3-Clause
 mongo-c-driver,Apache-2.0
 monit,GPL3
+monitoring-plugins,GPL3
 mono,GPL
 mono,LGPL2.1
 mono,MPL
@@ -8815,6 +8864,7 @@ network-manager-sstp,GPL2
 networkmanager,LGPL-2.1-or-later
 networkmanager,GPL-2.0-or-later
 networkmanager-docs,LGPL-2.1-or-later
+networkmanager-l2tp,GPL2
 networkmanager-openconnect,GPL
 networkmanager-openvpn,GPL-2.0-or-later
 networkmanager-pptp,GPL
@@ -9019,6 +9069,7 @@ ocaml-hashcons,LGPL2.1
 ocaml-integers,custom
 ocaml-intrinsics-kernel,MIT
 ocaml-logs,ISC
+ocaml-num,LGPL2.1
 ocaml-pp,MIT
 ocaml-ppx_derivers,BSD
 ocaml-re,LGPL2.1
@@ -9231,6 +9282,7 @@ opensips,GPL
 openslide,LGPL
 opensmtpd,custom
 opensmtpd-filter-dkimsign,BSD
+opensmtpd-filter-rspamd,ISC
 opensmtpd-filter-senderscore,custom:ISC
 opensnitch,GPL-3.0-or-later
 opensp,BSD
@@ -9455,6 +9507,7 @@ papers,GPL-2.0-or-later
 papers-lib-docs,GPL-2.0-or-later
 paperwork,GPL-3.0-or-later
 papilo,LGPL-3.0-only
+papirus-icon-theme,GPL3
 pappl,Apache-2.0 WITH LLVM-exception
 paprefs,GPL-2.0-or-later
 par2cmdline,GPL2
@@ -9772,6 +9825,7 @@ perl-data-hierarchy,GPL
 perl-data-hierarchy,PerlArtistic
 perl-data-messagepack,PerlArtistic
 perl-data-messagepack,GPL
+perl-data-munge,PerlArtistic
 perl-data-optlist,PerlArtistic
 perl-data-optlist,GPL
 perl-data-perl,PerlArtistic
@@ -10134,6 +10188,8 @@ perl-ipc-shareable,GPL
 perl-ipc-shareable,PerlArtistic
 perl-ipc-system-simple,PerlArtistic
 perl-ipc-system-simple,GPL
+perl-json,GPL
+perl-json,PerlArtistic
 perl-json-maybexs,Artistic-1.0-Perl
 perl-json-maybexs,GPL-1.0-or-later
 perl-json-parse,GPL
@@ -10481,6 +10537,7 @@ perl-sub-install,PerlArtistic
 perl-sub-install,GPL
 perl-sub-name,PerlArtistic
 perl-sub-name,GPL
+perl-sub-override,Artistic-1.0-Perl
 perl-sub-prototype,Artistic-1.0-Perl
 perl-sub-quote,PerlArtistic
 perl-sub-quote,GPL
@@ -10794,6 +10851,7 @@ php-legacy-phpdbg,PHP-3.01
 php-legacy-pspell,PHP-3.01
 php-legacy-redis,PHP-3.01
 php-legacy-snmp,PHP-3.01
+php-legacy-sodium,PHP-3.01
 php-legacy-sqlite,PHP-3.01
 php-legacy-tidy,PHP-3.01
 php-legacy-xsl,PHP-3.01
@@ -11040,6 +11098,7 @@ postgrey,GPL
 postorius,GPL-3.0-or-later
 potrace,GPL-2.0-only
 povray,AGPL3
+power-profiles-daemon,GPL-3.0-only
 powerdevil,LGPL-2.0-or-later
 powerdns,GPL-2.0-only
 powerdns-recursor,GPL-2.0-only
@@ -11251,6 +11310,7 @@ python-ansi2html,LGPL-3.0-or-later
 python-ansible-compat,MIT
 python-ansicolor,Apache-2.0
 python-ansicolors,ISC
+python-antlr4,BSD
 python-anyio,MIT
 python-anyjson,BSD
 python-anysqlite,BSD-3-Clause
@@ -11459,6 +11519,7 @@ python-configobj,BSD
 python-configshell-fb,Apache-2.0
 python-configupdater,MIT
 python-confuse,MIT
+python-consolekit,MIT
 python-constantly,MIT
 python-construct,MIT
 python-contourpy,BSD
@@ -11664,6 +11725,7 @@ python-fire,Apache-2.0
 python-fissix,PSF
 python-fixtures,Apache
 python-flake8-black,MIT
+python-flake8-docstrings,MIT
 python-flake8-isort,GPL-2.0-only
 python-flaky,Apache
 python-flasgger,MIT
@@ -11866,6 +11928,7 @@ python-ipip-ipdb,Apache
 python-ipycanvas,BSD-3-Clause
 python-ipykernel,BSD-3-Clause
 python-ipympl,BSD-3-Clause
+python-ipyparallel,BSD-3-Clause
 python-ipython-autoimport,MIT
 python-ipython-genutils,BSD
 python-ipywidgets,BSD-3-Clause
@@ -12073,6 +12136,8 @@ python-miniupnpc,BSD
 python-mistletoe,MIT
 python-mistune,BSD-3-Clause
 python-mitmproxy-rs,MIT
+python-ml-dtypes,Apache-2.0
+python-ml-dtypes,MPL-2.0
 python-mocket,BSD
 python-mockito,MIT
 python-moddb,MIT
@@ -12276,6 +12341,7 @@ python-pipenv,MIT
 python-pipenv-to-requirements,MIT
 python-pipx,MIT
 python-pipx,BSD
+python-pivy,ISC
 python-pixelmatch,ISC
 python-pkgconfig,MIT
 python-pkginfo,MIT
@@ -12484,6 +12550,7 @@ python-pyppmd,LGPL
 python-pypresence,MIT
 python-pyproj,custom
 python-pyproject-api,MIT
+python-pyproject-hooks,MIT
 python-pyproject-metadata,MIT
 python-pyproject-parser,MIT
 python-pypubsub,BSD-2-Clause
@@ -12689,6 +12756,7 @@ python-remoto,MIT
 python-rencode,GPL
 python-reportlab,BSD
 python-repoze.lru,custom:BSD
+python-requests,Apache-2.0
 python-requests-aws4auth,MIT
 python-requests-credssp,ISC
 python-requests-file,Apache
@@ -12890,6 +12958,7 @@ python-subunit,Apache
 python-suds,LGPL
 python-superqt,BSD-3-Clause
 python-sure,GPL
+python-svglib,LGPL-3.0-only
 python-svgwrite,MIT
 python-swiftclient,Apache
 python-sword,GPL
@@ -13098,6 +13167,7 @@ python-xattr,MIT
 python-xcffib,Apache
 python-xkbcommon,MIT
 python-xlib,LGPL
+python-xlrd,BSD
 python-xlsxwriter,BSD
 python-xlwt,BSD
 python-xmljson,MIT
@@ -14771,6 +14841,10 @@ qt5-base,LGPL3
 qt5-base,FDL
 qt5-base,custom
 qt5-charts,GPL3
+qt5-connectivity,GPL3
+qt5-connectivity,LGPL3
+qt5-connectivity,FDL
+qt5-connectivity,custom
 qt5-datavis3d,GPL3
 qt5-declarative,GPL3
 qt5-declarative,LGPL3
@@ -15195,6 +15269,7 @@ rednotebook,GPL
 redo-python,GPL
 redo-sh,AGPL3
 redshift,GPL-3.0-only
+referenceassemblies-pcl,custom
 refind,BSD-2-Clause
 refind,CC-BY-SA-3.0
 refind,CC-BY-SA-4.0
@@ -15435,6 +15510,7 @@ rpacket,Apache-2.0 OR MIT
 rpcsvc-proto,BSD
 rpg-cli,MIT
 rpi-imager,Apache-2.0
+rpm-sequoia,LGPL-2.0-or-later
 rpm-tools,GPL2
 rpmextract,GPL-2.0-only
 rq,Apache-2.0
@@ -15649,6 +15725,7 @@ ruby-log4r,LGPL
 ruby-loofah,MIT
 ruby-lumberjack,MIT
 ruby-m,MIT
+ruby-mail,MIT
 ruby-mail-gpg,MIT
 ruby-manpages,MIT
 ruby-mapping,MIT
@@ -15861,6 +15938,7 @@ ruby-sus-fixtures-async-http,MIT
 ruby-sus-fixtures-console,MIT
 ruby-sus-fixtures-openssl,MIT
 ruby-sync,BSD
+ruby-syntax,BSD
 ruby-sys-filesystem,Apache-2.0
 ruby-sys-proctable,Apache-2.0
 ruby-sys-uname,Apache
@@ -16089,6 +16167,7 @@ setbfree-lv2,GPL-2.0-or-later
 setbfree-standalone,GPL-2.0-or-later
 setconf,GPL2
 setzer,GPL-3.0-or-later
+sfizz,BSD-2-Clause
 sfizz-lib,BSD-2-Clause
 sfizz-lv2,BSD-2-Clause
 sfizz-standalone,BSD-2-Clause
@@ -16313,6 +16392,7 @@ spectmorph-clap,LGPL-2.1-or-later
 spectmorph-instruments,LGPL-2.1-or-later
 spectmorph-lv2,LGPL-2.1-or-later
 spectmorph-tools,LGPL-2.1-or-later
+spectmorph-vst,LGPL-2.1-or-later
 speech-dispatcher,GPL2
 speech-dispatcher,FDL
 speedcrunch,GPL-2.0-only
@@ -16528,6 +16608,7 @@ switchboard-plug-network,GPL-3.0-only
 switchboard-plug-notifications,GPL-2.0-only
 switchboard-plug-online-accounts,GPL-3.0-only
 switchboard-plug-parental-controls,GPL-3.0-only
+switchboard-plug-power,GPL-2.0-only
 switchboard-plug-printers,GPL-3.0-only
 switchboard-plug-security-privacy,GPL-3.0-only
 switchboard-plug-sharing,GPL-3.0-only
@@ -16740,6 +16821,7 @@ tesseract-data-fra,Apache
 tesseract-data-frk,Apache
 tesseract-data-frm,Apache
 tesseract-data-fry,Apache
+tesseract-data-gla,Apache
 tesseract-data-gle,Apache
 tesseract-data-glg,Apache
 tesseract-data-grc,Apache
@@ -17023,6 +17105,9 @@ thunderbird-i18n-kk,LGPL-2.1-only
 thunderbird-i18n-ko,MPL-2.0
 thunderbird-i18n-ko,GPL-2.0-only
 thunderbird-i18n-ko,LGPL-2.1-only
+thunderbird-i18n-lt,MPL-2.0
+thunderbird-i18n-lt,GPL-2.0-only
+thunderbird-i18n-lt,LGPL-2.1-only
 thunderbird-i18n-ms,MPL-2.0
 thunderbird-i18n-ms,GPL-2.0-only
 thunderbird-i18n-ms,LGPL-2.1-only
@@ -17278,6 +17363,7 @@ ttf-crimson-pro-variable,OFL-1.1
 ttf-croscore,OFL-1.1
 ttf-d2coding-nerd,OFL-1.1-no-RFN
 ttf-daddytime-mono-nerd,OFL-1.1-no-RFN
+ttf-dejavu,custom
 ttf-dejavu-nerd,Bitstream-Vera
 ttf-doulos-sil,OFL-1.1-RFN
 ttf-droid,Apache
@@ -17491,6 +17577,7 @@ up,Apache
 updlockfiles,GPL-3.0-or-later
 upmpdcli,LGPL-2.1-or-later
 upower,GPL-2.0-or-later
+upterm,Apache
 uptimed,GPL
 upx,custom
 upx,GPL2
@@ -17698,6 +17785,7 @@ vinagre,GPL-2.0-or-later
 vinagre,LGPL-2.0-or-later
 vint,MIT
 virglrenderer,MIT
+virt-firmware,GPL-2.0-or-later
 virt-install,GPL
 virt-manager,GPL
 virt-viewer,GPL
@@ -18054,6 +18142,7 @@ wmfocus,MIT
 wmname,MIT
 wob,ISC
 woff-fira-code,custom:OFL
+woff2,MIT
 woff2-cascadia-code,custom:OFL
 woff2-fira-code,custom:OFL
 wofi,GPL-3.0-or-later
@@ -18317,6 +18406,7 @@ xiphos,GPL2
 xjadeo,GPL-2.0-or-later
 xkbsel,GPL
 xkcdpass,BSD-3-Clause
+xkeyboard-config,LicenseRef-xkeyboard-config
 xkeycaps,custom
 xl2tpd,GPL
 xloadimage,MIT
@@ -18626,6 +18716,7 @@ zam-plugins-ladspa,GPL-2.0-or-later
 zam-plugins-lv2,GPL-2.0-or-later
 zam-plugins-standalone,GPL-2.0-or-later
 zam-plugins-vst,GPL-2.0-or-later
+zam-plugins-vst3,GPL-2.0-or-later
 zanshin,GPL-2.0-or-later
 zaproxy,Apache
 zarchive,MIT
@@ -18870,6 +18961,7 @@ lib32-libmikmod,GPL2
 lib32-libmikmod,LGPL2.1
 lib32-libmodplug,custom
 lib32-libndp,LGPL-2.1-or-later
+lib32-libnewt,GPL
 lib32-libnghttp2,MIT
 lib32-libnghttp3,MIT
 lib32-libnl,GPL

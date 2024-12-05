@@ -27,29 +27,23 @@ func convertArrays(packages []Package) {
 		{func(pkg Package) []string { return pkg.Checkdepends }, "checkdepends.csv", "checkdepends", nil},
 	}
 
-	for _, attr := range attributes {
-		file := filepath.Join(csvDir, attr.file)
-		header := []string{"pkg", attr.name}
+	for i := range attributes {
+		file := filepath.Join(csvDir, attributes[i].file)
+		header := []string{"pkg", attributes[i].name}
 		writeHeader(header, file)
-	}
 
-	for i, pkg := range packages {
-		for j, attr := range attributes {
-			for _, value := range attributes[j].field(pkg) {
-				attributes[j].records = append(attributes[j].records, []string{pkg.Pkgname, value})
+		for j, pkg := range packages {
+			for _, value := range attributes[i].field(pkg) {
+				attributes[i].records = append(attributes[i].records, []string{pkg.Pkgname, value})
 			}
 
-			if (i % batchSize) == 0 {
-				file := filepath.Join(csvDir, attr.file)
-				writeToCsv(attr.records, file)
-				attributes[j].records = nil
+			if ((j + 1) % batchSize) == 0 {
+				writeToCsv(attributes[i].records, file)
+				attributes[i].records = nil
 			}
 		}
-	}
 
-	for _, attr := range attributes {
-		file := filepath.Join(csvDir, attr.file)
-		writeToCsv(attr.records, file)
+		writeToCsv(attributes[i].records, file)
 	}
 }
 

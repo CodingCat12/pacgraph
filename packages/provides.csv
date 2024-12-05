@@ -1,4 +1,6 @@
 pkg,provides
+acl,xfsacl
+acl,libacl.so
 argon2,libargon2.so
 attr,xfsattr
 attr,libattr.so
@@ -685,6 +687,10 @@ faac,libfaac.so
 faad2,faad
 faad2,libfaad_drm.so
 faad2,libfaad.so
+faust,libfaustmachine.so
+faust,libfaust.so
+faust,libOSCFaust.so
+faust,libHTTPDFaust.so
 fcft,libfcft.so
 fcitx,fcitx-gtk2
 fcitx,fcitx-gtk3
@@ -1667,6 +1673,7 @@ libreoffice-fresh-lb,libreoffice-lb
 libreoffice-fresh-lo,libreoffice-lo
 libreoffice-fresh-lt,libreoffice-lt
 libreoffice-fresh-lv,libreoffice-lv
+libreoffice-fresh-mai,libreoffice-mai
 libreoffice-fresh-mk,libreoffice-mk
 libreoffice-fresh-ml,libreoffice-ml
 libreoffice-fresh-mn,libreoffice-mn
@@ -1971,6 +1978,7 @@ lm_sensors,libsensors.so
 localsearch,tracker3-miners
 lowdown,liblowdown.so
 lua-luaepnf,lua-epnf
+lua-luarepl,lua-repl
 lua-luautf8,lua-utf8
 lua-std-debug,lua-std-_debug
 lua51-luaepnf,lua51-epnf
@@ -2052,6 +2060,7 @@ mongo-c-driver,libbson
 mongo-c-driver,libbson-1.0.so
 mongo-c-driver,libmongoc
 mongo-c-driver,libmongoc-1.0.so
+monitoring-plugins,nagios-plugins
 mono,monodoc
 mono-msbuild,msbuild
 mono-msbuild-sdkresolver,msbuild-sdkresolver
@@ -2310,6 +2319,7 @@ php-legacy-pgsql,php-pgsql-interpreter
 php-legacy-phpdbg,php-phpdbg-interpreter
 php-legacy-pspell,php-pspell-interpreter
 php-legacy-snmp,php-snmp-interpreter
+php-legacy-sodium,php-sodium-interpreter
 php-legacy-sqlite,php-sqlite-interpreter
 php-legacy-tidy,php-tidy-interpreter
 php-legacy-xsl,php-xsl-interpreter
@@ -2550,6 +2560,7 @@ reaper,vst-host
 reaper,vst3-host
 redo-python,redo
 redo-sh,redo
+referenceassemblies-pcl,mono-pcl
 remmina,remmina-plugins
 rhonabwy,librhonabwy.so
 roc-toolkit,libroc.so
@@ -2799,6 +2810,7 @@ tesseract-data-fra,tessdata
 tesseract-data-frk,tessdata
 tesseract-data-frm,tessdata
 tesseract-data-fry,tessdata
+tesseract-data-gla,tessdata
 tesseract-data-gle,tessdata
 tesseract-data-glg,tessdata
 tesseract-data-grc,tessdata
@@ -7341,6 +7353,7 @@ ttf-crimson-pro-variable,crimson-pro-font
 ttf-croscore,ttf-font
 ttf-d2coding-nerd,ttf-font-nerd
 ttf-daddytime-mono-nerd,ttf-font-nerd
+ttf-dejavu,ttf-font
 ttf-dejavu-nerd,ttf-font-nerd
 ttf-doulos-sil,doulos-sil-font
 ttf-doulos-sil,ttf-sil-doulos
@@ -7481,6 +7494,9 @@ wireshark-cli,libwiretap.so
 wireshark-cli,libwsutil.so
 wlroots,libwlroots-0.18.so
 wlroots0.17,libwlroots.so
+woff2,libwoff2common.so
+woff2,libwoff2dec.so
+woff2,libwoff2enc.so
 wolfssl,libwolfssl.so
 woob,weboob
 wpebackend-fdo,libWPEBackend-fdo-1.0.so
@@ -7508,6 +7524,7 @@ xf86-input-synaptics,synaptics
 xf86-video-intel,xf86-video-intel-uxa
 xf86-video-intel,xf86-video-intel-sna
 xfce4-notifyd,notification-daemon
+xkeyboard-config,xkbdata
 xmlsec,libxmlsec1.so
 xmlsec,libxmlsec1-openssl.so
 xmlsec,libxmlsec1-nss.so
