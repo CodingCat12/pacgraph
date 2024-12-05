@@ -17,8 +17,9 @@ var startTime time.Time = time.Now()
 var logger = logrus.New()
 
 func main() {
-	argParser()
-	if debugMode {
+	defaultConfig, _ = loadConfig("config.json")
+	parseArgs()
+	if adjustedConfig.DebugMode {
 		logger.SetLevel(logrus.DebugLevel)
 	} else {
 		logger.SetLevel(logrus.FatalLevel)

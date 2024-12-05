@@ -16,15 +16,15 @@ func convertArrays(packages []Package) {
 	}
 
 	attributes := []attributeData{
-		{func(pkg Package) []string { return pkg.Groups }, "groups.csv", "groups", nil},
-		{func(pkg Package) []string { return pkg.Licenses }, "licenses.csv", "licenses", nil},
-		{func(pkg Package) []string { return pkg.Conflicts }, "conflicts.csv", "conflicts", nil},
-		{func(pkg Package) []string { return pkg.Provides }, "provides.csv", "provides", nil},
-		{func(pkg Package) []string { return pkg.Replaces }, "replaces.csv", "replaces", nil},
-		{func(pkg Package) []string { return pkg.Depends }, "depends.csv", "depends", nil},
-		{func(pkg Package) []string { return pkg.Optdepends }, "optdepends.csv", "optdepends", nil},
-		{func(pkg Package) []string { return pkg.Makedepends }, "makedepends.csv", "makedepends", nil},
-		{func(pkg Package) []string { return pkg.Checkdepends }, "checkdepends.csv", "checkdepends", nil},
+		{func(pkg Package) []string { return pkg.Groups }, adjustedConfig.Paths.GroupsFile, "groups", nil},
+		{func(pkg Package) []string { return pkg.Licenses }, adjustedConfig.Paths.LicensesFile, "licenses", nil},
+		{func(pkg Package) []string { return pkg.Conflicts }, adjustedConfig.Paths.ConflictsFile, "conflicts", nil},
+		{func(pkg Package) []string { return pkg.Provides }, adjustedConfig.Paths.ProvidesFile, "provides", nil},
+		{func(pkg Package) []string { return pkg.Replaces }, adjustedConfig.Paths.ReplacesFile, "replaces", nil},
+		{func(pkg Package) []string { return pkg.Depends }, adjustedConfig.Paths.DependsFile, "depends", nil},
+		{func(pkg Package) []string { return pkg.Optdepends }, adjustedConfig.Paths.OptDependsFile, "optdepends", nil},
+		{func(pkg Package) []string { return pkg.Makedepends }, adjustedConfig.Paths.MakeDependsFile, "makedepends", nil},
+		{func(pkg Package) []string { return pkg.Checkdepends }, adjustedConfig.Paths.CheckDependsFile, "checkdepends", nil},
 	}
 
 	for i := range attributes {
@@ -37,7 +37,7 @@ func convertArrays(packages []Package) {
 				attributes[i].records = append(attributes[i].records, []string{pkg.Pkgname, value})
 			}
 
-			if ((j + 1) % batchSize) == 0 {
+			if ((j + 1) % adjustedConfig.BatchSize) == 0 {
 				writeToCsv(attributes[i].records, file)
 				attributes[i].records = nil
 			}

@@ -1,0 +1,16 @@
+{
+    "debugMode": true,
+    "batchSize": 5000,
+    "paths": {
+        "packageFile": "packages/packages.csv",
+        "groupsFile": "packages/groups.csv",
+        "licensesFile": "packages/licenses.csv",
+        "conflictsFile": "packages/conflicts.csv",
+        "providesFile": "packages/provides.csv",
+        "replacesFile": "packages/replaces.csv",
+        "dependsFile": "packages/depends.csv",
+        "optDependsFile": "packages/optdepends.csv",
+        "makeDependsFile": "packages/makedepends.csv",
+        "checkDependsFile": "packages/checkdepends.csv"
+    }
+}

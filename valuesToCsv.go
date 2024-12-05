@@ -26,7 +26,7 @@ func convertValues(packages []Package) {
 			pkg.BuildDate,
 			pkg.Packager})
 
-		if ((i + 1) % batchSize) == 0 {
+		if ((i + 1) % adjustedConfig.BatchSize) == 0 {
 			err := writeToCsv(result, pkgFile)
 			if err != nil {
 				logger.Fatalf("error writing packages to csv: %v", err)
