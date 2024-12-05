@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"time"
@@ -29,7 +30,6 @@ func main() {
 	}
 
 	RemoveContents(csvDir)
-	writeHeaders(pkgFile)
 	convertValues(data)
 	convertArrays(data)
 	logSpecs()
@@ -52,4 +52,9 @@ func RemoveContents(dirName string) error {
 		}
 	}
 	return nil
+}
+
+func toString(value any) string {
+	result := fmt.Sprintf("%v", value)
+	return result
 }

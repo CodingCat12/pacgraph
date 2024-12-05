@@ -1,3 +1,4 @@
+pkg,provides
 acl,xfsacl
 acl,libacl.so
 argon2,libargon2.so

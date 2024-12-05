@@ -1,3 +1,4 @@
+pkg,checkdepends
 archlinux-keyring,python-coverage
 archlinux-keyring,python-pytest
 autoconf,gcc-fortran

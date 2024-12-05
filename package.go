@@ -43,7 +43,7 @@ const (
 	X86_64 Arch = "x86_64"
 )
 
-var header = [...]string{
+var pkgHeader = [...]string{
 	"pkgname",
 	"pkgbase",
 	"repo",

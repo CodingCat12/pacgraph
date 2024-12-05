@@ -1,3 +1,4 @@
+pkg,depends
 acl,glibc
 archlinux-keyring,pacman
 argon2,glibc

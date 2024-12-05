@@ -1,3 +1,4 @@
+pkg,replaces
 acl,xfsacl
 attr,xfsattr
 binutils,binutils-multilib

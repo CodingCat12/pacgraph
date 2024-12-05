@@ -3,11 +3,12 @@ package main
 import (
 	"bufio"
 	"encoding/csv"
-	"fmt"
 	"os"
 )
 
 func convertValues(packages []Package) {
+	writeHeaders(pkgFile)
+
 	var csvData []Package
 	for i, pkg := range packages {
 		csvData = append(csvData, pkg)
@@ -40,14 +41,14 @@ func writePackages(packages []Package, filePath string) error {
 		result = append(result, []string{
 			pkg.Pkgname,
 			pkg.Pkgbase,
-			fmt.Sprintf("%v", pkg.Repo),
-			fmt.Sprintf("%v", pkg.Arch),
+			toString(pkg.Repo),
+			toString(pkg.Arch),
 			pkg.Pkgver,
 			pkg.Pkgdesc,
 			pkg.URL,
 			pkg.Filename,
-			fmt.Sprintf("%v", pkg.CompressedSize),
-			fmt.Sprintf("%v", pkg.InstalledSize),
+			toString(pkg.CompressedSize),
+			toString(pkg.InstalledSize),
 			pkg.BuildDate,
 			pkg.Packager})
 	}
@@ -74,7 +75,7 @@ func writeHeaders(filePath string) error {
 	csvWriter := csv.NewWriter(bufio.NewWriter(file))
 	csvWriter.UseCRLF = true
 
-	csvWriter.Write(header[:])
+	csvWriter.Write(pkgHeader[:])
 	csvWriter.Flush()
 	if err := csvWriter.Error(); err != nil {
 		return err

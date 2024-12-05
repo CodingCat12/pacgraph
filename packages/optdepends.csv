@@ -1,3 +1,4 @@
+pkg,optdepends
 audit,libldap
 audit,sh
 base,linux

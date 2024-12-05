@@ -1,3 +1,4 @@
+pkg,makedepends
 acl,attr
 amd-ucode,git
 amd-ucode,rdfind
