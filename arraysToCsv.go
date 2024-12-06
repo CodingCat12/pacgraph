@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"encoding/csv"
 	"os"
-	"path/filepath"
 )
 
 func convertArrays(packages []Package) {
@@ -28,7 +27,7 @@ func convertArrays(packages []Package) {
 	}
 
 	for i := range attributes {
-		file := filepath.Join(csvDir, attributes[i].file)
+		file := attributes[i].file
 		header := []string{"pkg", attributes[i].name}
 		writeHeader(header, file)
 

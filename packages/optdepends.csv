@@ -447,7 +447,7 @@ azote,libappindicator-gtk3
 azote,python-yaml
 azote,swaybg
 azote,feh
-azote,xorg-xrandr
+azote,python-xlib
 azote,wlr-randr
 b4,python-dkim
 backuppc,openssh
@@ -2542,6 +2542,8 @@ jupyterlab,jupyter-collaboration
 jupyterlab,jupyterlab-lsp
 jupyterlab,jupyterlab-widgets
 jupyterlab,npm
+jupyterlab-3,npm
+jupyterlab-3,jupyterlab-widgets
 k3b,cdparanoia
 k3b,cdrdao
 k3b,cdrtools
@@ -5074,6 +5076,10 @@ python-google-auth,python-pyu2f
 python-google-auth,python-requests
 python-google-auth-oauthlib,python-click
 python-googleapis-common-protos,python-grpcio
+python-gtkspellcheck,gtk3
+python-gtkspellcheck,gtk4
+python-gtkspellcheck-docs,gtk3
+python-gtkspellcheck-docs,gtk4
 python-hachoir,python-urwid
 python-hachoir,python-wxpython
 python-hishel,python-boto3
@@ -6397,6 +6403,7 @@ sagemath,python-pycosat
 sagemath,python-pynormaliz
 sagemath,python-pyscipopt
 sagemath,rubiks
+sagemath,sage-data-cunningham_tables
 sagemath,sage-notebook-exporter
 sagemath,sagemath-doc
 sagemath,shared_meataxe

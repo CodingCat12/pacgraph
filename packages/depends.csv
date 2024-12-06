@@ -7274,6 +7274,7 @@ deepin-image-viewer,dtkwidget
 deepin-image-viewer,deepin-image-editor
 deepin-image-viewer,gcc-libs
 deepin-image-viewer,libraw
+deepin-image-viewer,dtkdeclarative
 deepin-kwin,qt5-declarative
 deepin-kwin,qt5-x11extras
 deepin-kwin,kconfig5
@@ -7450,6 +7451,7 @@ deepin-qt6integration,dtk6widget
 deepin-qt6integration,qt6-base
 deepin-qt6integration,glibc
 deepin-qt6integration,gcc-libs
+deepin-qt6integration,libqtxdg
 deepin-qt6platform-plugins,qt6-base
 deepin-qt6platform-plugins,libx11
 deepin-qt6platform-plugins,libxi
@@ -12118,9 +12120,14 @@ gala,sqlite
 gala,systemd-libs
 gala,wayland
 galculator,gtk3
+galera,glibc
+galera,gcc-libs
 galera,boost-libs
+galera,libboost_program_options.so
 galera,mariadb-server
 galera,openssl
+galera,libcrypto.so
+galera,libssl.so
 gambas3-dev-tools,gambas3-runtime
 gambas3-gb-args,gambas3-runtime
 gambas3-gb-cairo,gambas3-runtime
@@ -23942,6 +23949,24 @@ iodine,zlib
 iodine,net-tools
 iodine,systemd-libs
 ioping,glibc
+iotas,dconf
+iotas,glib2
+iotas,gtk4
+iotas,gtksourceview5
+iotas,hicolor-icon-theme
+iotas,libadwaita
+iotas,libsecret
+iotas,pango
+iotas,python
+iotas,python-gobject
+iotas,python-gtkspellcheck
+iotas,python-linkify-it-py
+iotas,python-markdown-it-py
+iotas,python-mdit_py_plugins
+iotas,python-packaging
+iotas,python-pypandoc
+iotas,python-requests
+iotas,webkitgtk-6.0
 iotop,python
 iotop-c,glibc
 iotop-c,ncurses
@@ -24902,6 +24927,11 @@ jupyterlab,python-jupyterlab-server
 jupyterlab,python-packaging
 jupyterlab,python-tornado
 jupyterlab,python-traitlets
+jupyterlab-3,python
+jupyterlab-3,python-jupyterlab_server
+jupyterlab-3,python-jupyter_packaging
+jupyterlab-3,jupyter-notebook-shim
+jupyterlab-3,nodejs
 jupyterlab-lsp,python
 jupyterlab-lsp,jupyter-lsp
 jupyterlab-lsp,jupyterlab
@@ -35115,6 +35145,9 @@ mda.lv2,glibc
 mda.lv2,lv2-host
 mdbook,gcc-libs
 mdbook-linkcheck,mdbook
+mdbook-mermaid,gcc-libs
+mdbook-mermaid,glibc
+mdbook-mermaid,mdbook
 mdcat,gcc-libs
 mdcat,openssl
 mdcat,curl
@@ -35324,15 +35357,14 @@ mesa,libglvnd
 mesa,libx11
 mesa,libxcb
 mesa,libxext
-mesa,libxfixes
 mesa,libxshmfence
 mesa,libxxf86vm
 mesa,llvm-libs
 mesa,lm_sensors
+mesa,spirv-tools
 mesa,wayland
 mesa,zlib
 mesa,zstd
-mesa,libomxil-bellagio
 mesa-amber,libdrm
 mesa-amber,libglvnd
 mesa-amber,libxfixes
@@ -38541,8 +38573,6 @@ opencl-clover-mesa,glibc
 opencl-clover-mesa,libdrm
 opencl-clover-mesa,libelf
 opencl-clover-mesa,llvm-libs
-opencl-clover-mesa,spirv-llvm-translator
-opencl-clover-mesa,spirv-tools
 opencl-clover-mesa,zlib
 opencl-clover-mesa,zstd
 opencl-clover-mesa,libclc
@@ -45359,6 +45389,10 @@ python-gssapi,glibc
 python-gssapi,krb5
 python-gssapi,python
 python-gssapi,python-decorator
+python-gtkspellcheck,glib2
+python-gtkspellcheck,python
+python-gtkspellcheck,python-gobject
+python-gtkspellcheck,python-pyenchant
 python-gtts,python
 python-gtts,python-click
 python-gtts,python-requests
@@ -46161,10 +46195,6 @@ python-mitmproxy-rs,python
 python-ml-dtypes,gcc-libs
 python-ml-dtypes,glibc
 python-ml-dtypes,python-numpy
-python-mocket,python-decorator
-python-mocket,python-httptools
-python-mocket,python-magic
-python-mocket,python-urllib3
 python-mockito,python
 python-moddb,python-beautifulsoup4
 python-moddb,python-requests
@@ -51123,9 +51153,11 @@ qt6-multimedia-ffmpeg,qt6-multimedia
 qt6-multimedia-gstreamer,gcc-libs
 qt6-multimedia-gstreamer,glib2
 qt6-multimedia-gstreamer,glibc
+qt6-multimedia-gstreamer,gst-plugins-bad-libs
 qt6-multimedia-gstreamer,gst-plugins-base
 qt6-multimedia-gstreamer,gstreamer
 qt6-multimedia-gstreamer,libglvnd
+qt6-multimedia-gstreamer,libpulse
 qt6-multimedia-gstreamer,qt6-base
 qt6-multimedia-gstreamer,qt6-multimedia
 qt6-networkauth,gcc-libs
@@ -53481,6 +53513,7 @@ ruby-rubyzip,ruby
 ruby-rugged,glibc
 ruby-rugged,ruby
 ruby-rugged,libgit2.so
+ruby-safe_yaml,ruby
 ruby-samovar,ruby
 ruby-samovar,ruby-console
 ruby-samovar,ruby-mapping
@@ -59772,6 +59805,7 @@ vulkan-intel,libdrm
 vulkan-intel,libx11
 vulkan-intel,libxcb
 vulkan-intel,libxshmfence
+vulkan-intel,spirv-tools
 vulkan-intel,systemd-libs
 vulkan-intel,vulkan-icd-loader
 vulkan-intel,wayland
@@ -59781,6 +59815,7 @@ vulkan-intel,zstd
 vulkan-mesa-layers,gcc-libs
 vulkan-mesa-layers,glibc
 vulkan-mesa-layers,libdrm
+vulkan-mesa-layers,libpng
 vulkan-mesa-layers,libxcb
 vulkan-mesa-layers,wayland
 vulkan-mesa-layers,python
@@ -59791,6 +59826,7 @@ vulkan-nouveau,libdrm
 vulkan-nouveau,libx11
 vulkan-nouveau,libxcb
 vulkan-nouveau,libxshmfence
+vulkan-nouveau,spirv-tools
 vulkan-nouveau,systemd-libs
 vulkan-nouveau,vulkan-icd-loader
 vulkan-nouveau,wayland
@@ -59806,6 +59842,7 @@ vulkan-radeon,libx11
 vulkan-radeon,libxcb
 vulkan-radeon,libxshmfence
 vulkan-radeon,llvm-libs
+vulkan-radeon,spirv-tools
 vulkan-radeon,systemd-libs
 vulkan-radeon,vulkan-icd-loader
 vulkan-radeon,wayland
@@ -59820,6 +59857,7 @@ vulkan-swrast,libx11
 vulkan-swrast,libxcb
 vulkan-swrast,libxshmfence
 vulkan-swrast,llvm-libs
+vulkan-swrast,spirv-tools
 vulkan-swrast,systemd-libs
 vulkan-swrast,vulkan-icd-loader
 vulkan-swrast,wayland
@@ -61630,6 +61668,8 @@ xorg-oclock,libx11
 xorg-oclock,libxmu
 xorg-oclock,libxext
 xorg-oclock,libxkbfile
+xorg-oclock,libxt
+xorg-oclock,glibc
 xorg-server,libepoxy
 xorg-server,libxfont2
 xorg-server,pixman
@@ -61822,6 +61862,8 @@ xorg-xkbcomp,libxkbfile
 xorg-xkbcomp,libx11
 xorg-xkbcomp,glibc
 xorg-xkbevd,libxkbfile
+xorg-xkbevd,libx11
+xorg-xkbevd,glibc
 xorg-xkbprint,libxkbfile
 xorg-xkbprint,libx11
 xorg-xkbprint,glibc
@@ -63543,11 +63585,11 @@ lib32-mesa,lib32-libglvnd
 lib32-mesa,lib32-libx11
 lib32-mesa,lib32-libxcb
 lib32-mesa,lib32-libxext
-lib32-mesa,lib32-libxfixes
 lib32-mesa,lib32-libxshmfence
 lib32-mesa,lib32-libxxf86vm
 lib32-mesa,lib32-llvm-libs
 lib32-mesa,lib32-lm_sensors
+lib32-mesa,lib32-spirv-tools
 lib32-mesa,lib32-wayland
 lib32-mesa,lib32-zlib
 lib32-mesa,lib32-zstd
@@ -63601,8 +63643,6 @@ lib32-opencl-clover-mesa,lib32-glibc
 lib32-opencl-clover-mesa,lib32-libdrm
 lib32-opencl-clover-mesa,lib32-libelf
 lib32-opencl-clover-mesa,lib32-llvm-libs
-lib32-opencl-clover-mesa,lib32-spirv-llvm-translator
-lib32-opencl-clover-mesa,lib32-spirv-tools
 lib32-opencl-clover-mesa,lib32-zlib
 lib32-opencl-clover-mesa,lib32-zstd
 lib32-opencl-clover-mesa,opencl-clover-mesa
@@ -63809,6 +63849,7 @@ lib32-vulkan-intel,lib32-libdrm
 lib32-vulkan-intel,lib32-libx11
 lib32-vulkan-intel,lib32-libxcb
 lib32-vulkan-intel,lib32-libxshmfence
+lib32-vulkan-intel,lib32-spirv-tools
 lib32-vulkan-intel,lib32-systemd
 lib32-vulkan-intel,lib32-vulkan-icd-loader
 lib32-vulkan-intel,lib32-wayland
@@ -63819,6 +63860,7 @@ lib32-vulkan-intel,vulkan-intel
 lib32-vulkan-mesa-layers,lib32-gcc-libs
 lib32-vulkan-mesa-layers,lib32-glibc
 lib32-vulkan-mesa-layers,lib32-libdrm
+lib32-vulkan-mesa-layers,lib32-libpng
 lib32-vulkan-mesa-layers,lib32-libxcb
 lib32-vulkan-mesa-layers,lib32-wayland
 lib32-vulkan-mesa-layers,vulkan-mesa-layers
@@ -63829,6 +63871,7 @@ lib32-vulkan-nouveau,lib32-libdrm
 lib32-vulkan-nouveau,lib32-libx11
 lib32-vulkan-nouveau,lib32-libxcb
 lib32-vulkan-nouveau,lib32-libxshmfence
+lib32-vulkan-nouveau,lib32-spirv-tools
 lib32-vulkan-nouveau,lib32-systemd
 lib32-vulkan-nouveau,lib32-vulkan-icd-loader
 lib32-vulkan-nouveau,lib32-wayland
@@ -63845,6 +63888,7 @@ lib32-vulkan-radeon,lib32-libx11
 lib32-vulkan-radeon,lib32-libxcb
 lib32-vulkan-radeon,lib32-libxshmfence
 lib32-vulkan-radeon,lib32-llvm-libs
+lib32-vulkan-radeon,lib32-spirv-tools
 lib32-vulkan-radeon,lib32-systemd
 lib32-vulkan-radeon,lib32-vulkan-icd-loader
 lib32-vulkan-radeon,lib32-wayland
@@ -63860,6 +63904,7 @@ lib32-vulkan-swrast,lib32-libx11
 lib32-vulkan-swrast,lib32-libxcb
 lib32-vulkan-swrast,lib32-libxshmfence
 lib32-vulkan-swrast,lib32-llvm-libs
+lib32-vulkan-swrast,lib32-spirv-tools
 lib32-vulkan-swrast,lib32-systemd
 lib32-vulkan-swrast,lib32-vulkan-icd-loader
 lib32-vulkan-swrast,lib32-wayland

@@ -367,6 +367,7 @@ jre21-openjdk-headless,jdk21-openjdk
 jre21-openjdk-headless,jre21-openjdk
 jupyter-collaboration,jupyter-server-ydoc
 jupyter-console,jupyter_console
+jupyterlab-3,jupyterlab
 jupyterlab-pygments,jupyterlab_pygments
 kactivities-stats5,kactivities-stats
 kactivities5,kactivities

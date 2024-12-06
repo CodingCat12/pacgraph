@@ -30,14 +30,15 @@ func main() {
 		logger.SetLevel(logrus.FatalLevel)
 	}
 
-	pkgData, err := getData()
+	packages, err := getData()
 	if err != nil {
 		logger.Fatalf("failed to retrieve package data, %v", err)
 	}
 
 	RemoveContents(csvDir)
-	convertValues(pkgData)
-	convertArrays(pkgData)
+	convertValues(packages)
+	convertArrays(packages)
+	logger.Debugf("processed %v packages", len(packages))
 	logSpecs()
 }
 

@@ -827,6 +827,7 @@ gap-packages,gap-circle
 gap-packages,gap-classicpres
 gap-packages,gap-cohomolo
 gap-packages,gap-congruence
+gap-packages,gap-corefreesub
 gap-packages,gap-corelg
 gap-packages,gap-crime
 gap-packages,gap-crypting
@@ -928,6 +929,7 @@ gap-packages,gap-simpcomp
 gap-packages,gap-singular
 gap-packages,gap-sl2reps
 gap-packages,gap-sla
+gap-packages,gap-smallantimagmas
 gap-packages,gap-smallsemi
 gap-packages,gap-sonata
 gap-packages,gap-sotgrps
@@ -945,6 +947,7 @@ gap-packages,gap-unitlib
 gap-packages,gap-uuid
 gap-packages,gap-walrus
 gap-packages,gap-wedderga
+gap-packages,gap-wpe
 gap-packages,gap-xgap
 gap-packages,gap-xmod
 gap-packages,gap-xmodalg
@@ -1348,6 +1351,7 @@ json-glib,libjson-glib-1.0.so
 jsoncpp,libjsoncpp.so
 jsonrpc-glib,libjsonrpc-glib-1.0.so
 jupyter-console,jupyter_console
+jupyterlab-3,jupyterlab
 jupyterlab-pygments,jupyterlab_pygments
 kakoune-lsp,kak-lsp
 kani,cargo-kani
@@ -7574,6 +7578,7 @@ zlib-ng,zlib-ng
 zlib-ng,libz-ng.so
 zlib-ng-compat,zlib
 zlib-ng-compat,libz.so
+zlib-ng-compat,zlib
 zopfli,libzopfli.so
 zopfli,libzopflipng.so
 zycore-c,libZycore.so
