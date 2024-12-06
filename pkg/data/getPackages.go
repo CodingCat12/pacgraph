@@ -1,10 +1,10 @@
-package main
+package data
 
 import (
 	"github.com/Jguer/go-alpm/v2"
 )
 
-func getData() ([]Package, error) {
+func GetData() ([]Package, error) {
 	handle, err := alpm.Initialize("/", "/var/lib/pacman")
 	if err != nil {
 		return []Package{}, err

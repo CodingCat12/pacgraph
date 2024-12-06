@@ -1,4 +1,4 @@
-package main
+package config
 
 import (
 	"encoding/json"
@@ -6,10 +6,10 @@ import (
 	"os"
 )
 
-var defaultConfig Config
-var adjustedConfig Config
+var DefaultConfig Config
+var AdjustedConfig Config
 
-func loadConfig(configFilePath string) (Config, error) {
+func LoadConfig(configFilePath string) (Config, error) {
 	fallbackConfig := Config{
 		DebugMode: false,
 		BatchSize: 5000,
@@ -55,7 +55,7 @@ func loadConfig(configFilePath string) (Config, error) {
 	return config, nil
 }
 
-func parseArgs(adjustedConf *Config, defaultConf Config) {
+func ParseArgs(adjustedConf *Config, defaultConf Config) {
 	flag.BoolVar(&adjustedConf.DebugMode, "debug", defaultConf.DebugMode, "Enable debug mode")
 	flag.IntVar(&adjustedConf.BatchSize, "batchsize", defaultConf.BatchSize, "How many rows to write at once (default: 5000)")
 	flag.StringVar(&adjustedConf.Paths.PackageFile, "packagesfile", defaultConf.Paths.PackageFile, "")

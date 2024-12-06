@@ -1,67 +1,33 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"path/filepath"
-	"time"
-
-	"github.com/sirupsen/logrus"
+	"github.com/CodingCat12/pacgraph/pkg/config"
+	"github.com/CodingCat12/pacgraph/pkg/data"
+	"github.com/CodingCat12/pacgraph/pkg/helper"
+	"github.com/CodingCat12/pacgraph/pkg/log"
 )
 
 var csvDir string = "packages"
 
-var startTime time.Time = time.Now()
-
-var logger = logrus.New()
-
 func main() {
 	var err error
 
-	defaultConfig, err = loadConfig("config.json")
+	config.DefaultConfig, err = config.LoadConfig("config.json")
 	if err != nil {
-		logger.Warnf("failed to load config file, falling back to defaults")
+		log.Logger.Warnf("failed to load config file, falling back to defaults")
 	}
 
-	parseArgs(&adjustedConfig, defaultConfig)
-	if adjustedConfig.DebugMode {
-		logger.SetLevel(logrus.DebugLevel)
-	} else {
-		logger.SetLevel(logrus.FatalLevel)
-	}
+	config.ParseArgs(&config.AdjustedConfig, config.DefaultConfig)
+	log.LoggerSetup()
 
-	packages, err := getData()
+	packages, err := data.GetData()
 	if err != nil {
-		logger.Fatalf("failed to retrieve package data, %v", err)
+		log.Logger.Fatalf("failed to retrieve package data, %v", err)
 	}
 
-	RemoveContents(csvDir)
-	convertValues(packages)
-	convertArrays(packages)
-	logger.Debugf("processed %v packages", len(packages))
-	logSpecs()
-}
-
-func RemoveContents(dirName string) error {
-	dir, err := os.Open(dirName)
-	if err != nil {
-		return err
-	}
-	defer dir.Close()
-	names, err := dir.Readdirnames(-1)
-	if err != nil {
-		return err
-	}
-	for _, name := range names {
-		err = os.RemoveAll(filepath.Join(dirName, name))
-		if err != nil {
-			return err
-		}
-	}
-	return nil
-}
-
-func toString(value any) string {
-	result := fmt.Sprintf("%v", value)
-	return result
+	helper.RemoveContents(csvDir)
+	data.ConvertValues(packages)
+	data.ConvertArrays(packages)
+	log.Logger.Debugf("processed %v packages", len(packages))
+	log.LogSpecs()
 }

@@ -1,13 +1,16 @@
-package main
+package data
 
 import (
 	"bufio"
 	"encoding/csv"
 	"os"
+
+	"github.com/CodingCat12/pacgraph/pkg/config"
+	"github.com/CodingCat12/pacgraph/pkg/helper"
 )
 
-func convertValues(packages []Package) {
-	writeHeader(pkgHeader[:], adjustedConfig.Paths.PackageFile)
+func ConvertValues(packages []Package) error {
+	writeHeader(pkgHeader[:], config.AdjustedConfig.Paths.PackageFile)
 
 	var result [][]string
 	for i, pkg := range packages {
@@ -15,21 +18,21 @@ func convertValues(packages []Package) {
 		result = append(result, []string{
 			pkg.Pkgname,
 			pkg.Pkgbase,
-			toString(pkg.Repo),
-			toString(pkg.Arch),
+			helper.ToString(pkg.Repo),
+			helper.ToString(pkg.Arch),
 			pkg.Pkgver,
 			pkg.Pkgdesc,
 			pkg.URL,
 			pkg.Filename,
-			toString(pkg.CompressedSize),
-			toString(pkg.InstalledSize),
+			helper.ToString(pkg.CompressedSize),
+			helper.ToString(pkg.InstalledSize),
 			pkg.BuildDate,
 			pkg.Packager})
 
-		if ((i + 1) % adjustedConfig.BatchSize) == 0 {
-			err := writeToCsv(result, adjustedConfig.Paths.PackageFile)
+		if ((i + 1) % config.AdjustedConfig.BatchSize) == 0 {
+			err := writeToCsv(result, config.AdjustedConfig.Paths.PackageFile)
 			if err != nil {
-				logger.Fatalf("error writing packages to csv: %v", err)
+				return err
 			}
 
 			result = nil
@@ -37,8 +40,10 @@ func convertValues(packages []Package) {
 	}
 
 	if len(result) > 0 {
-		writeToCsv(result, adjustedConfig.Paths.PackageFile)
+		writeToCsv(result, config.AdjustedConfig.Paths.PackageFile)
 	}
+
+	return nil
 }
 
 func writeHeader(header []string, filePath string) error {

@@ -1,4 +1,4 @@
-package main
+package data
 
 type Package struct {
 	Pkgname        string   `json:"pkgname"`

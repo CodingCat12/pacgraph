@@ -1,5 +1,5 @@
 {
-    "debugMode": true,
+    "debugMode": false,
     "batchSize": 5000,
     "paths": {
         "packageFile": "packages/packages.csv",
