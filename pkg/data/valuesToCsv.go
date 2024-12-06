@@ -10,11 +10,13 @@ import (
 )
 
 func ConvertValues(packages []Package) error {
-	writeHeader(pkgHeader[:], config.AdjustedConfig.Paths.PackageFile)
+	err := writeHeader(pkgHeader[:], config.AdjustedConfig.Paths.PackageFile)
+	if err != nil {
+		return err
+	}
 
 	var result [][]string
 	for i, pkg := range packages {
-
 		result = append(result, []string{
 			pkg.Pkgname,
 			pkg.Pkgbase,
@@ -40,7 +42,10 @@ func ConvertValues(packages []Package) error {
 	}
 
 	if len(result) > 0 {
-		writeToCsv(result, config.AdjustedConfig.Paths.PackageFile)
+		err := writeToCsv(result, config.AdjustedConfig.Paths.PackageFile)
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil

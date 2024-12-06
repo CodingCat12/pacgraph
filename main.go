@@ -14,7 +14,7 @@ func main() {
 
 	config.DefaultConfig, err = config.LoadConfig("config.json")
 	if err != nil {
-		log.Logger.Warnf("failed to load config file, falling back to defaults")
+		log.Logger.Warnf("failed to load config file: %v\n falling back to defaults", err)
 	}
 
 	config.ParseArgs(&config.AdjustedConfig, config.DefaultConfig)
@@ -26,8 +26,18 @@ func main() {
 	}
 
 	helper.RemoveContents(csvDir)
-	data.ConvertValues(packages)
-	data.ConvertArrays(packages)
-	log.Logger.Debugf("processed %v packages", len(packages))
+	err = data.ConvertValues(packages)
+	if err != nil {
+		log.Logger.Fatalf("failed to write package data: %v", err)
+	}
+
+	err = data.ConvertArrays(packages)
+	if err != nil {
+		log.Logger.Fatalf("failed to write package array data: %v", err)
+	}
+
+	log.Logger.Infof("successfully wrote %v packages", len(packages))
+	log.Logger.Infof("output written to directory: %v", csvDir)
+
 	log.LogSpecs()
 }

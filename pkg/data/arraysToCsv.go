@@ -8,7 +8,7 @@ import (
 	"github.com/CodingCat12/pacgraph/pkg/config"
 )
 
-func ConvertArrays(packages []Package) {
+func ConvertArrays(packages []Package) error {
 	type attributeData struct {
 		field   func(pkg Package) []string
 		file    string
@@ -31,7 +31,10 @@ func ConvertArrays(packages []Package) {
 	for i := range attributes {
 		file := attributes[i].file
 		header := []string{"pkg", attributes[i].name}
-		writeHeader(header, file)
+		err := writeHeader(header, file)
+		if err != nil {
+			return err
+		}
 
 		for j, pkg := range packages {
 			for _, value := range attributes[i].field(pkg) {
@@ -39,13 +42,21 @@ func ConvertArrays(packages []Package) {
 			}
 
 			if ((j + 1) % config.AdjustedConfig.BatchSize) == 0 {
-				writeToCsv(attributes[i].records, file)
+				err := writeToCsv(attributes[i].records, file)
+				if err != nil {
+					return err
+				}
 				attributes[i].records = nil
 			}
 		}
 
-		writeToCsv(attributes[i].records, file)
+		err = writeToCsv(attributes[i].records, file)
+		if err != nil {
+			return err
+		}
 	}
+
+	return nil
 }
 
 func writeToCsv(data [][]string, filePath string) error {
