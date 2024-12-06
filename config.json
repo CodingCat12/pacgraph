@@ -1,11 +1,13 @@
 {
     "debugMode": false,
+    "dontAskClearDir": true,
     "batchSize": 5000,
     "paths": {
+        "outputDir": "packages",
         "packageFile": "packages/packages.csv",
         "groupsFile": "packages/groups.csv",
         "licensesFile": "packages/licenses.csv",
-        "conflictsFile": "packages/conflicts.csv",
+        "conflictsFile": "packsages/conflicts.csv",
         "providesFile": "packages/provides.csv",
         "replacesFile": "packages/replaces.csv",
         "dependsFile": "packages/depends.csv",

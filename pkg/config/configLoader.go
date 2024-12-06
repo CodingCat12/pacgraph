@@ -11,9 +11,11 @@ var AdjustedConfig Config
 
 func LoadConfig(configFilePath string) (Config, error) {
 	fallbackConfig := Config{
-		DebugMode: false,
-		BatchSize: 5000,
+		DebugMode:       false,
+		DontAskClearDir: false,
+		BatchSize:       5000,
 		Paths: struct {
+			CsvDir           string `json:"outputDir"`
 			PackageFile      string `json:"packageFile"`
 			GroupsFile       string `json:"groupsFile"`
 			LicensesFile     string `json:"licensesFile"`
@@ -25,6 +27,7 @@ func LoadConfig(configFilePath string) (Config, error) {
 			MakeDependsFile  string `json:"makeDependsFile"`
 			CheckDependsFile string `json:"checkDependsFile"`
 		}{
+			CsvDir:           "packages",
 			PackageFile:      "packages/packages.csv",
 			GroupsFile:       "packages/groups.csv",
 			LicensesFile:     "packages/licenses.csv",
@@ -57,11 +60,12 @@ func LoadConfig(configFilePath string) (Config, error) {
 
 func ParseArgs(adjustedConf *Config, defaultConf Config) {
 	flag.BoolVar(&adjustedConf.DebugMode, "debug", defaultConf.DebugMode, "Enable debug mode")
-	flag.IntVar(&adjustedConf.BatchSize, "batchsize", defaultConf.BatchSize, "How many rows to write at once (default: 5000)")
-	flag.StringVar(&adjustedConf.Paths.PackageFile, "packagesfile", defaultConf.Paths.PackageFile, "")
-	flag.StringVar(&adjustedConf.Paths.GroupsFile, "groupsfile", defaultConf.Paths.GroupsFile, "")
-	flag.StringVar(&adjustedConf.Paths.LicensesFile, "licensesfile", defaultConf.Paths.LicensesFile, "")
-	flag.StringVar(&adjustedConf.Paths.ConflictsFile, "conflictsfile", defaultConf.Paths.ConflictsFile, "")
+	flag.BoolVar(&adjustedConf.DontAskClearDir, "dontask", defaultConf.DontAskClearDir, "Clear the any directories without asking")
+	flag.IntVar(&adjustedConf.BatchSize, "batchsize", defaultConf.BatchSize, "How many rows to write at once")
+	flag.StringVar(&adjustedConf.Paths.PackageFile, "packagesfile", defaultConf.Paths.PackageFile, "Path to the packages CSV file")
+	flag.StringVar(&adjustedConf.Paths.GroupsFile, "groupsfile", defaultConf.Paths.GroupsFile, "Path to the groups CSV file")
+	flag.StringVar(&adjustedConf.Paths.LicensesFile, "licensesfile", defaultConf.Paths.LicensesFile, "Path to the licenses CSV file")
+	flag.StringVar(&adjustedConf.Paths.ConflictsFile, "conflictsfile", defaultConf.Paths.ConflictsFile, "Path to the conflicts CSV file")
 	flag.StringVar(&adjustedConf.Paths.ProvidesFile, "providesfile", defaultConf.Paths.ProvidesFile, "Path to the provides CSV file")
 	flag.StringVar(&adjustedConf.Paths.ReplacesFile, "replacesfile", defaultConf.Paths.ReplacesFile, "Path to the replaces CSV file")
 	flag.StringVar(&adjustedConf.Paths.DependsFile, "dependsfile", defaultConf.Paths.DependsFile, "Path to the depends CSV file")
@@ -73,9 +77,11 @@ func ParseArgs(adjustedConf *Config, defaultConf Config) {
 }
 
 type Config struct {
-	DebugMode bool `json:"debugMode"`
-	BatchSize int  `json:"batchSize"`
-	Paths     struct {
+	DebugMode       bool `json:"debugMode"`
+	BatchSize       int  `json:"batchSize"`
+	DontAskClearDir bool `json:"DontAskClearDir"`
+	Paths           struct {
+		CsvDir           string `json:"outputDir"`
 		PackageFile      string `json:"packageFile"`
 		GroupsFile       string `json:"groupsFile"`
 		LicensesFile     string `json:"licensesFile"`
