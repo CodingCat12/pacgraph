@@ -10,29 +10,34 @@ import (
 )
 
 var csvDir string = "packages"
-var pkgFile string = filepath.Join(csvDir, "packages.csv")
 
 var startTime time.Time = time.Now()
 
 var logger = logrus.New()
 
 func main() {
-	defaultConfig, _ = loadConfig("config.json")
-	adjustedConfig = parseArgs()
+	var err error
+
+	defaultConfig, err = loadConfig("config.json")
+	if err != nil {
+		logger.Warnf("failed to load config file, falling back to defaults")
+	}
+
+	parseArgs(&adjustedConfig, defaultConfig)
 	if adjustedConfig.DebugMode {
 		logger.SetLevel(logrus.DebugLevel)
 	} else {
 		logger.SetLevel(logrus.FatalLevel)
 	}
 
-	data, err := getData()
+	pkgData, err := getData()
 	if err != nil {
 		logger.Fatalf("failed to retrieve package data, %v", err)
 	}
 
 	RemoveContents(csvDir)
-	convertValues(data)
-	convertArrays(data)
+	convertValues(pkgData)
+	convertArrays(pkgData)
 	logSpecs()
 }
 

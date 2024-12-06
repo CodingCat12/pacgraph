@@ -7,7 +7,7 @@ import (
 )
 
 func convertValues(packages []Package) {
-	writeHeader(pkgHeader[:], pkgFile)
+	writeHeader(pkgHeader[:], adjustedConfig.Paths.PackageFile)
 
 	var result [][]string
 	for i, pkg := range packages {
@@ -27,7 +27,7 @@ func convertValues(packages []Package) {
 			pkg.Packager})
 
 		if ((i + 1) % adjustedConfig.BatchSize) == 0 {
-			err := writeToCsv(result, pkgFile)
+			err := writeToCsv(result, adjustedConfig.Paths.PackageFile)
 			if err != nil {
 				logger.Fatalf("error writing packages to csv: %v", err)
 			}
@@ -37,7 +37,7 @@ func convertValues(packages []Package) {
 	}
 
 	if len(result) > 0 {
-		writeToCsv(result, pkgFile)
+		writeToCsv(result, adjustedConfig.Paths.PackageFile)
 	}
 }
 
