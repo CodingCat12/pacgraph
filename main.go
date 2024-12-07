@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/CodingCat12/pacgraph/pkg/config"
 	"github.com/CodingCat12/pacgraph/pkg/data"
-	"github.com/CodingCat12/pacgraph/pkg/helper"
 	"github.com/CodingCat12/pacgraph/pkg/log"
 )
 
@@ -23,19 +22,19 @@ func main() {
 		log.Logger.Fatalf("failed to retrieve package data, %v", err)
 	}
 
-	if config.AdjustedConfig.DontAskClearDir {
-		helper.RemoveContents(config.AdjustedConfig.Paths.CsvDir)
-	} else {
-		res, err := helper.Confirm("Delete all files in"+config.AdjustedConfig.Paths.CsvDir, false)
-		if err != nil {
-			log.Logger.Warnf("failed to get awnser: %v: falling back to defaults", err)
-			res = false
-		}
-
-		if res {
-			helper.RemoveContents(config.AdjustedConfig.Paths.CsvDir)
-		}
-	}
+	//if config.AdjustedConfig.DontAskClearDir {
+	//	helper.ClearContents(config.AdjustedConfig.Paths.CsvDir)
+	//} else {
+	//	res, err := helper.Confirm("Delete all files in"+config.AdjustedConfig.Paths.CsvDir, false)
+	//	if err != nil {
+	//		log.Logger.Warnf("failed to get awnser: %v: falling back to defaults", err)
+	//		res = false
+	//	}
+	//
+	//	if res {
+	//		helper.ClearContents(config.AdjustedConfig.Paths.CsvDir)
+	//	}
+	//}
 
 	err = data.ConvertValues(packages)
 	if err != nil {
