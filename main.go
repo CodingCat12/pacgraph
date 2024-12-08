@@ -22,20 +22,6 @@ func main() {
 		log.Logger.Fatalf("failed to retrieve package data, %v", err)
 	}
 
-	//if config.AdjustedConfig.DontAskClearDir {
-	//	helper.ClearContents(config.AdjustedConfig.Paths.CsvDir)
-	//} else {
-	//	res, err := helper.Confirm("Delete all files in"+config.AdjustedConfig.Paths.CsvDir, false)
-	//	if err != nil {
-	//		log.Logger.Warnf("failed to get awnser: %v: falling back to defaults", err)
-	//		res = false
-	//	}
-	//
-	//	if res {
-	//		helper.ClearContents(config.AdjustedConfig.Paths.CsvDir)
-	//	}
-	//}
-
 	err = data.ConvertValues(packages)
 	if err != nil {
 		log.Logger.Fatalf("failed to write package data: %v", err)
