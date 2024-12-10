@@ -1463,6 +1463,8 @@ liquidsfz-lv2,lv2lint
 liquidsfz-standalone,lv2lint
 llvm14,python-psutil
 llvm14-libs,python-psutil
+llvm15,python-psutil
+llvm15-libs,python-psutil
 lsd,git
 lsp-plugins,jq
 lsp-plugins,lv2lint
@@ -1617,6 +1619,7 @@ mdds,boost
 mdformat,python-pytest
 meld,appstream-glib
 mephisto.lv2,lv2lint
+mergiraf,git
 meson,boost
 meson,clang
 meson,cmake
@@ -3077,14 +3080,6 @@ python-designateclient,python-oslotest
 python-designateclient,python-subunit
 python-designateclient,python-requests-mock
 python-designateclient,python-stestr
-python-devtools,python-asyncpg
-python-devtools,python-multidict
-python-devtools,python-numpy
-python-devtools,python-pygments
-python-devtools,python-pytest
-python-devtools,python-pytest-mock
-python-devtools,python-pytest-pretty
-python-devtools,python-sqlalchemy
 python-diff-cover,python-pycodestyle
 python-diff-cover,python-pyflakes
 python-diff-cover,python-pylint
@@ -7646,6 +7641,8 @@ wget,perl-http-daemon
 wget,perl-io-socket-ssl
 wget,python
 whipper,python-twisted
+wild,clang
+wild,lld
 wimlib,attr
 wireplumber,pipewire-audio
 wireplumber-docs,pipewire-audio

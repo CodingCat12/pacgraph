@@ -2241,7 +2241,6 @@ docker,Apache-2.0
 docker-buildx,Apache-2.0
 docker-compose,Apache-2.0
 docker-machine,Apache
-docker-scan,Apache
 docopt,MIT
 docparser,GPL3
 doctest,MIT
@@ -2736,7 +2735,7 @@ fdupes,MIT
 feathernotes,GPL3
 featherpad,GPL3
 feedbackd,GPL3
-feeluown,GPL3
+feeluown,GPL-3.0-or-later
 feeluown-bilibili,GPL3
 feeluown-kuwo,GPL3
 feeluown-netease,GPL3
@@ -5961,6 +5960,7 @@ kernelshark,GPL-2.0-only
 kernelshark,LGPL-2.0-only
 kexec-tools,GPL-2.0-or-later
 kexi,GPL2
+key-rack,GPL-3.0-or-later
 keychain,GPL-2.0-only
 keycloak,Apache
 keycloak-archlinux-theme,Apache-2.0
@@ -7033,7 +7033,7 @@ libproxy-docs,LGPL-2.1-or-later
 libpst,GPL
 libpst-docs,GPL
 libptytty,GPL
-libpulse,LGPL
+libpulse,LGPL-2.1-or-later
 libpurple,GPL
 libpurple-lurch,GPL3
 libpwquality,BSD-3-Clause OR GPL-2.0-or-later
@@ -7894,6 +7894,8 @@ llvm-julia-libs,custom:Apache 2.0 with LLVM Exception
 llvm-libs,Apache-2.0 WITH LLVM-exception
 llvm14,custom:Apache 2.0 with LLVM Exception
 llvm14-libs,custom:Apache 2.0 with LLVM Exception
+llvm15,custom:Apache 2.0 with LLVM Exception
+llvm15-libs,custom:Apache 2.0 with LLVM Exception
 lm32-elf-binutils,GPL
 lm32-elf-gcc,GPL-3.0-with-GCC-exception AND GFDL-1.3-or-later
 lm32-elf-gdb,GPL3
@@ -8356,7 +8358,7 @@ man-pages-zh_cn,custom:GFDL1.2
 man-pages-zh_tw,custom:GFDL1.2
 man2html,GPL-2.0-or-later
 mandoc,ISC
-mandown,Apache
+mandown,Apache-2.0
 mangohud,MIT
 manuskript,GPL3
 mapnik,LGPL
@@ -8512,6 +8514,7 @@ menumaker,BSD
 menyoki,GPL3
 mephisto.lv2,Artistic2.0
 mercurial,GPL
+mergiraf,GPL-3.0-or-later
 merkaartor,GPL2
 merkuro,GPL-2.0-or-later
 mermaid-cli,MIT
@@ -8553,9 +8556,6 @@ mimalloc,MIT
 mimetreeparser,LGPL-2.0-or-later
 mimir,AGPL-3.0-only
 minder,GPL3
-minetest,LGPL
-minetest-common,custom
-minetest-server,LGPL
 ming,GPL
 ming,LGPL
 mingw-w64-binutils,GPL-2.0-or-later
@@ -9472,6 +9472,7 @@ pam_mount,GPL-2.0-or-later
 pam_mount,LGPL-2.1-or-later
 pam_wrapper,GPL-3.0-or-later
 pamixer,GPL-3.0-or-later
+pan,GPL-2.0-only
 pandoc-cli,GPL-2.0-or-later
 pandoc-crossref,GPL2
 pandoc-plot,GPL
@@ -11123,7 +11124,7 @@ pqiv,GPL-3.0-only
 praat,GPL
 pragha,GPL3
 pre-commit,MIT
-premake,BSD
+premake,BSD-3-Clause
 premake3,GPL
 presage,GPL-2.0-or-later
 presenterm,BSD-2-Clause
@@ -11608,7 +11609,6 @@ python-deprecated,MIT
 python-deprecation,Apache
 python-deprecation-alias,Apache
 python-designateclient,Apache
-python-devtools,MIT
 python-diff-cover,Apache-2.0
 python-diff-match-patch,Apache
 python-digitalocean,LGPL
@@ -12819,7 +12819,7 @@ python-schema,MIT
 python-schemdraw,BSD
 python-scikit-build,MIT
 python-scikit-build-core,Apache-2.0
-python-scikit-hep-testdata,BSD
+python-scikit-hep-testdata,BSD-3-Clause
 python-scikit-learn,BSD-3-Clause
 python-scipy,BSD-3-Clause
 python-scripttest,MIT
@@ -15207,7 +15207,7 @@ raft,LGPL-3.0-only
 rage,BSD
 rage-encryption,Apache-2.0
 rage-encryption,MIT
-ragel,GPL
+ragel,GPL-2.0-only
 raider,GPL-3.0-or-later
 railway,GPL-3.0-or-later
 rainfrog,MIT
@@ -17843,6 +17843,7 @@ vncdotool,MIT
 vnstat,GPL
 vokoscreen,GPL2
 volatility3,custom
+volk,MIT
 volume_key,GPL2
 volumeicon,GPL3
 vorbis-tools,GPL2
@@ -18109,6 +18110,8 @@ wike,GPL-3.0-or-later
 wiki-tui,MIT
 wikicurses,MIT
 wikiman,MIT
+wild,Apache-2.0
+wild,MIT
 wildcard,GPL-3.0-or-later
 wildmidi,GPL-3.0-or-later AND LGPL-3.0-or-later
 wimlib,custom

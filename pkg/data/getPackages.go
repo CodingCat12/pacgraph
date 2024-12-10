@@ -1,6 +1,8 @@
 package data
 
 import (
+	"time"
+
 	"github.com/Jguer/go-alpm/v2"
 )
 
@@ -30,7 +32,7 @@ func GetData() ([]Package, error) {
 				Filename:       pkg.FileName(),
 				CompressedSize: pkg.Size(),
 				InstalledSize:  pkg.ISize(),
-				BuildDate:      pkg.BuildDate().String(),
+				BuildDate:      pkg.BuildDate().UTC().Format(time.RFC3339),
 				Packager:       pkg.Packager(),
 				Groups:         pkg.Groups().Slice(),
 				Licenses:       pkg.Licenses().Slice(),

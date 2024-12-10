@@ -3089,7 +3089,6 @@ libportal,libportal-gtk4
 libportal,libportal-qt5
 libportal,libportal-qt6
 libportal,xdg-desktop-portal
-libpulse,glib2
 libpulse,pulse-native-provider
 libpurple,avahi
 libpurple,ca-certificates
@@ -4915,9 +4914,6 @@ python-deepdiff,python-clevercsv
 python-deepdiff,python-orjson
 python-defcon,python-fontpens
 python-defcon,python-lxml
-python-devtools,python-pygments
-python-devtools,python-pytest
-python-devtools,python-sqlalchemy
 python-diff-cover,python-tomli
 python-dill,python-objgraph
 python-dirty-equals,python-pydantic
@@ -7801,7 +7797,6 @@ lib32-imlib2,lib32-librsvg
 lib32-imlib2,lib32-libwebp
 lib32-libnewt,lib32-tcl
 lib32-libpulse,lib32-alsa-plugins
-lib32-libpulse,lib32-glib2
 lib32-libsoup,samba
 lib32-libsoup3,samba
 lib32-libva,lib32-libva-intel-driver
