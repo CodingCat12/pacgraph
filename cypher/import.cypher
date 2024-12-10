@@ -9,9 +9,6 @@ CREATE INDEX IF NOT EXISTS FOR (v:VirtualPackage) ON (v.name);
 
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/CodingCat12/pacgraph/refs/heads/main/packages/packages.csv' AS row
 CALL (row) {
-  WITH row,
-    trim(split(row.packager, ' <')[0]) AS packagername,
-    trim(replace(split(row.packager, ' <')[1], '>', '')) AS packageremail
   MERGE (p:Package {
     name: row.pkgname,
     base: row.pkgbase,
@@ -25,7 +22,7 @@ CALL (row) {
     packager: row.packager
   })
 
-  MERGE (pe:Person {name: packagername, email: packageremail})
+  MERGE (pe:Person {name: packagerName, email: row.packagerEmail})
 
   MERGE (r:Repo {name: row.repo})
   MERGE (a:Arch {name: row.arch})

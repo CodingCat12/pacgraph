@@ -12,7 +12,7 @@ type Package struct {
 	CompressedSize int64    `json:"compressed_size"`
 	InstalledSize  int64    `json:"installed_size"`
 	BuildDate      string   `json:"build_date"`
-	Packager       string   `json:"packager"`
+	Packager       Person   `json:"packager"`
 	Groups         []string `json:"groups"`
 	Licenses       []string `json:"licenses"`
 	Conflicts      []string `json:"conflicts"`
@@ -22,6 +22,11 @@ type Package struct {
 	Optdepends     []string `json:"optdepends"`
 	Makedepends    []string `json:"makedepends"`
 	Checkdepends   []string `json:"checkdepends"`
+}
+
+type Person struct {
+	Name  string
+	Email string
 }
 
 type Repo string
@@ -53,7 +58,8 @@ var pkgHeader = [...]string{
 	"compressedSize",
 	"installedSize",
 	"buildDate",
-	"packager",
+	"packagerName",
+	"packagerEmail",
 }
 
 var repos = [...]string{

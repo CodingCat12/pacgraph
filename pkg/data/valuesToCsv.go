@@ -29,7 +29,8 @@ func ConvertValues(packages []Package) error {
 			helper.ToString(pkg.CompressedSize),
 			helper.ToString(pkg.InstalledSize),
 			pkg.BuildDate,
-			pkg.Packager})
+			pkg.Packager.Name,
+			pkg.Packager.Email})
 
 		if ((i + 1) % config.AdjustedConfig.BatchSize) == 0 {
 			err := writeToCsv(result, config.AdjustedConfig.Paths.PackageFile)

@@ -1,6 +1,9 @@
 package data
 
 import (
+	"fmt"
+	"regexp"
+	"strings"
 	"time"
 
 	"github.com/Jguer/go-alpm/v2"
@@ -21,6 +24,11 @@ func GetData() ([]Package, error) {
 		}
 
 		for _, pkg := range db.PkgCache().Slice() {
+			packager, err := parsePerson(pkg.Packager())
+			if err != nil {
+				return []Package{}, err
+			}
+
 			result = append(result, (Package{
 				Pkgname:        pkg.Name(),
 				Pkgbase:        pkg.Base(),
@@ -33,7 +41,7 @@ func GetData() ([]Package, error) {
 				CompressedSize: pkg.Size(),
 				InstalledSize:  pkg.ISize(),
 				BuildDate:      pkg.BuildDate().UTC().Format(time.RFC3339),
-				Packager:       pkg.Packager(),
+				Packager:       packager,
 				Groups:         pkg.Groups().Slice(),
 				Licenses:       pkg.Licenses().Slice(),
 				Conflicts:      dependsToStrings(pkg.Conflicts().Slice()),
@@ -56,4 +64,20 @@ func dependsToStrings(dependencies []alpm.Depend) []string {
 		names = append(names, dep.Name)
 	}
 	return names
+}
+
+func parsePerson(input string) (Person, error) {
+	re := regexp.MustCompile(`^\s*([^\<]+)\s*<(.+?)>\s*$`)
+	matches := re.FindStringSubmatch(input)
+
+	if len(matches) != 3 {
+		return Person{}, fmt.Errorf("invalid format for person: %s", input)
+	}
+
+	name := strings.TrimSpace(matches[1])
+
+	return Person{
+		Name:  name,
+		Email: matches[2],
+	}, nil
 }
