@@ -13,7 +13,7 @@ func GetData() ([]Package, error) {
 
 	var result []Package
 	for _, repo := range repos {
-		db, err := handle.RegisterSyncDB(string(repo), 0)
+		db, err := handle.RegisterSyncDB(repo, 0)
 		if err != nil {
 			return []Package{}, err
 		}
@@ -22,7 +22,7 @@ func GetData() ([]Package, error) {
 			result = append(result, (Package{
 				Pkgname:        pkg.Name(),
 				Pkgbase:        pkg.Base(),
-				Repo:           repo,
+				Repo:           Repo(pkg.DB().Name()),
 				Arch:           Arch(pkg.Architecture()),
 				Pkgver:         pkg.Version(),
 				Pkgdesc:        pkg.Description(),

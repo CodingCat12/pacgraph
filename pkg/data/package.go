@@ -36,8 +36,6 @@ const (
 	MultilibTesting Repo = "multilib-testing"
 )
 
-var repos = []Repo{"core", "extra", "multilib"}
-
 const (
 	Any    Arch = "any"
 	X86_64 Arch = "x86_64"
@@ -56,4 +54,10 @@ var pkgHeader = [...]string{
 	"installedSize",
 	"buildDate",
 	"packager",
+}
+
+var repos = [...]string{
+	"core",
+	"extra",
+	"multilib",
 }
