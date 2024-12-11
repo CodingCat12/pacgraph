@@ -1,0 +1,8 @@
+CREATE INDEX IF NOT EXISTS FOR (p:Package) ON (p.name);
+CREATE INDEX IF NOT EXISTS FOR (p:Package) ON (p.base);
+CREATE INDEX IF NOT EXISTS FOR (p:Person) ON (p.name);
+CREATE INDEX IF NOT EXISTS FOR (r:Repo) ON (r.name);
+CREATE INDEX IF NOT EXISTS FOR (a:Arch) ON (a.name);
+CREATE INDEX IF NOT EXISTS FOR (g:Group) ON (g.name);
+CREATE INDEX IF NOT EXISTS FOR (l:License) ON (l.name);
+CREATE INDEX IF NOT EXISTS FOR (v:VirtualPackage) ON (v.name);

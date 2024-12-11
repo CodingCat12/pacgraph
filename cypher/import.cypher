@@ -1,12 +1,3 @@
-CREATE INDEX IF NOT EXISTS FOR (p:Package) ON (p.name);
-CREATE INDEX IF NOT EXISTS FOR (p:Package) ON (p.base);
-CREATE INDEX IF NOT EXISTS FOR (p:Person) ON (p.name);
-CREATE INDEX IF NOT EXISTS FOR (r:Repo) ON (r.name);
-CREATE INDEX IF NOT EXISTS FOR (a:Arch) ON (a.name);
-CREATE INDEX IF NOT EXISTS FOR (g:Group) ON (g.name);
-CREATE INDEX IF NOT EXISTS FOR (l:License) ON (l.name);
-CREATE INDEX IF NOT EXISTS FOR (v:VirtualPackage) ON (v.name);
-
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/CodingCat12/pacgraph/refs/heads/main/packages/packages.csv' AS row
 CALL (row) {
   MERGE (p:Package {
@@ -18,14 +9,13 @@ CALL (row) {
     filename: row.filename,
     compressedSize: toInteger(row.compressedSize),
     installedSize: toInteger(row.installedSize),
-    buildDate: datetime(row.buildDate),
-    packager: row.packager
+    buildDate: datetime(row.buildDate)
   })
 
-  MERGE (pe:Person {name: packagerName, email: row.packagerEmail})
-
+  MERGE (pe:Person {name: row.packagerName, email: row.packagerEmail})
   MERGE (r:Repo {name: row.repo})
   MERGE (a:Arch {name: row.arch})
+  
   MERGE (p)-[:PACKAGED_BY]->(pe)
   MERGE (p)-[:IS_IN_REPO]->(r)
   MERGE (p)-[:SUPPORTS_ARCHITECTURE]->(a)
